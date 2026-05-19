@@ -33,7 +33,7 @@ export default function HeroSection() {
       <motion.div
         className="absolute inset-0 z-0 scale-105"
         style={{ y: bgY }}
-      >
+    >
         <Image
           src="/images/luxury-hero-bg.png"
           alt="Cinematic peaceful natural environment for premium wellness"

@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const testimonials = [
   {
@@ -71,13 +70,13 @@ const testimonials = [
   },
 ];
 
-function MobileTransformationCard({ testimonial }: { testimonial: typeof testimonials[0] }) {
+function TestimonialCard({ testimonial }: { testimonial: typeof testimonials[0] }) {
   return (
     <div
       style={{
-        width: "280px",
+        width: "clamp(280px, 25vw, 360px)",
         flexShrink: 0,
-        padding: "24px 20px",
+        padding: "clamp(18px, 2vw, 24px) clamp(16px, 1.8vw, 20px)",
         background: "var(--bg-primary)",
         border: "1px solid var(--border)",
         borderRadius: "4px",
@@ -214,10 +213,6 @@ function MobileTransformationCard({ testimonial }: { testimonial: typeof testimo
 export default function TestimonialsSection() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
-  const [current, setCurrent] = useState(0);
-
-  const prev = () => setCurrent((c) => (c === 0 ? testimonials.length - 1 : c - 1));
-  const next = () => setCurrent((c) => (c + 1) % testimonials.length);
 
   return (
     <section
@@ -264,310 +259,68 @@ export default function TestimonialsSection() {
         }}
       />
 
-      <div style={{ maxWidth: "1300px", margin: "0 auto", padding: "0 clamp(20px, 4vw, 40px)" }}>
+      <div style={{ maxWidth: "100%", margin: "0 auto", boxSizing: "border-box" }}>
         {/* Header */}
         <div
           style={{
+            maxWidth: "1300px",
+            margin: "0 auto 48px auto",
+            padding: "0 clamp(20px, 4vw, 40px)",
             display: "flex",
-            justifyContent: "space-between",
-            alignItems: "flex-end",
-            marginBottom: "80px",
-            flexWrap: "wrap",
-            gap: "32px",
+            flexDirection: "column",
+            gap: "16px",
           }}
         >
-          <div>
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "16px",
-                marginBottom: "24px",
-              }}
-            >
-              <div style={{ width: "40px", height: "1px", background: "var(--gold)" }} />
-              <span
-                style={{
-                  fontFamily: "'Manrope', sans-serif",
-                  fontSize: "10px",
-                  letterSpacing: "0.35em",
-                  textTransform: "uppercase",
-                  color: "var(--gold)",
-                  fontWeight: 500,
-                }}
-              >
-                Client Stories
-              </span>
-            </motion.div>
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.1, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontSize: "clamp(38px, 4.5vw, 62px)",
-                fontWeight: 300,
-                color: "var(--text-primary)",
-                lineHeight: 1.15,
-                letterSpacing: "-0.01em",
-              }}
-            >
-              Realised <em className="text-gold-gradient italic not-italic">Transformation</em>
-            </motion.h2>
-          </div>
-
-          {/* Navigation */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.4 }}
-            className="hidden md:flex"
-            style={{ display: "flex", gap: "12px" }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "16px",
+            }}
           >
-            <button
-              onClick={prev}
-              aria-label="Previous testimonial"
+            <div style={{ width: "40px", height: "1px", background: "var(--gold)" }} />
+            <span
               style={{
-                width: "48px",
-                height: "48px",
-                borderRadius: "50%",
-                border: "1px solid var(--border)",
-                background: "transparent",
+                fontFamily: "'Manrope', sans-serif",
+                fontSize: "10px",
+                letterSpacing: "0.35em",
+                textTransform: "uppercase",
                 color: "var(--gold)",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                transition: "all 0.3s",
+                fontWeight: 500,
               }}
-              className="hover:bg-[rgba(197,168,128,0.08)] hover:border-[rgba(197,168,128,0.35)]"
             >
-              <ChevronLeft size={18} />
-            </button>
-            <button
-              onClick={next}
-              aria-label="Next testimonial"
-              style={{
-                width: "48px",
-                height: "48px",
-                borderRadius: "50%",
-                border: "1px solid rgba(197, 168, 128, 0.25)",
-                background: "rgba(197, 168, 128, 0.08)",
-                color: "var(--gold)",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                transition: "all 0.3s",
-              }}
-              className="hover:bg-[rgba(197,168,128,0.15)] hover:border-[rgba(197,168,128,0.4)]"
-            >
-              <ChevronRight size={18} />
-            </button>
+              Client Stories
+            </span>
           </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.1, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontSize: "clamp(38px, 4.5vw, 62px)",
+              fontWeight: 300,
+              color: "var(--text-primary)",
+              lineHeight: 1.15,
+              letterSpacing: "-0.01em",
+              margin: 0,
+            }}
+          >
+            Realised <em className="text-gold-gradient italic not-italic">Transformation</em>
+          </motion.h2>
         </div>
 
-        {/* Testimonial display */}
-        <div className="hidden md:block" style={{ position: "relative", minHeight: "340px" }}>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={current}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="grid grid-cols-1 md:grid-cols-[1fr_320px] gap-12 md:gap-20 items-start"
-            >
-              {/* Quote */}
-              <div>
-                <blockquote
-                  style={{
-                    fontFamily: "'Cormorant Garamond', serif",
-                    fontSize: "clamp(24px, 3.5vw, 36px)",
-                    fontWeight: 300,
-                    fontStyle: "italic",
-                    lineHeight: 1.45,
-                    color: "var(--text-primary)",
-                    marginBottom: "48px",
-                    letterSpacing: "-0.01em",
-                  }}
-                >
-                  &ldquo;{testimonials[current].quote}&rdquo;
-                </blockquote>
-
-                <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
-                  {/* Monogram avatar */}
-                  <div
-                    style={{
-                      width: "52px",
-                      height: "52px",
-                      borderRadius: "50%",
-                      background:
-                        "linear-gradient(135deg, rgba(197,168,128,0.15), rgba(18,18,18,0.8))",
-                      border: "1px solid var(--border)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontFamily: "'Cormorant Garamond', serif",
-                      fontSize: "18px",
-                      color: "var(--gold)",
-                    }}
-                  >
-                    {testimonials[current].author.charAt(0)}
-                  </div>
-                  <div>
-                    <p
-                      style={{
-                        fontFamily: "'Manrope', sans-serif",
-                        fontSize: "14.5px",
-                        fontWeight: 600,
-                        color: "var(--gold)",
-                        marginBottom: "4px",
-                      }}
-                    >
-                      {testimonials[current].author}
-                    </p>
-                    <p
-                      style={{
-                        fontFamily: "'Manrope', sans-serif",
-                        fontSize: "12px",
-                        color: "var(--text-muted)",
-                      }}
-                    >
-                      {testimonials[current].title}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Side card */}
-              <div
-                style={{
-                  padding: "32px 28px",
-                  background: "var(--bg-primary)",
-                  border: "1px solid var(--border)",
-                  alignSelf: "flex-start",
-                  borderRadius: "4px",
-                  width: "100%",
-                  boxSizing: "border-box",
-                  boxShadow: "0 10px 40px rgba(0,0,0,0.06)",
-                }}
-              >
-                {testimonials[current].image && (
-                  <div
-                    style={{
-                      position: "relative",
-                      width: "100%",
-                      aspectRatio: "1.1/1",
-                      marginBottom: "24px",
-                      overflow: "hidden",
-                      border: "1px solid rgba(197, 168, 128, 0.15)",
-                      borderRadius: "2px",
-                    }}
-                  >
-                    <img
-                      src={testimonials[current].image}
-                      alt={`${testimonials[current].author} transformation`}
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        filter: "brightness(0.95) contrast(1.05)",
-                      }}
-                    />
-                    {/* Before & After Badge */}
-                    <div
-                      style={{
-                        position: "absolute",
-                        bottom: "8px",
-                        left: "8px",
-                        right: "8px",
-                        display: "flex",
-                        justifyContent: "space-between",
-                        fontFamily: "'Manrope', sans-serif",
-                        fontSize: "8.5px",
-                        letterSpacing: "0.15em",
-                        color: "var(--gold)",
-                        textTransform: "uppercase",
-                        fontWeight: 600,
-                        background: "rgba(10, 10, 10, 0.8)",
-                        padding: "4px 10px",
-                        borderRadius: "1px",
-                        boxShadow: "0 2px 10px rgba(0,0,0,0.5)",
-                      }}
-                    >
-                      <span>Before</span>
-                      <span>After</span>
-                    </div>
-                  </div>
-                )}
-                <p
-                  style={{
-                    fontFamily: "'Manrope', sans-serif",
-                    fontSize: "9px",
-                    letterSpacing: "0.25em",
-                    textTransform: "uppercase",
-                    color: "var(--gold)",
-                    marginBottom: "16px",
-                    fontWeight: 600,
-                  }}
-                >
-                  Completed Path
-                </p>
-                <p
-                  style={{
-                    fontFamily: "'Cormorant Garamond', serif",
-                    fontSize: "19px",
-                    color: "var(--text-primary)",
-                    marginBottom: "28px",
-                    lineHeight: 1.4,
-                  }}
-                >
-                  {testimonials[current].duration}
-                </p>
-                <div
-                  style={{
-                    width: "30px",
-                    height: "1px",
-                    background: "var(--border)",
-                    marginBottom: "24px",
-                  }}
-                />
-
-                {/* Rating */}
-                <div style={{ display: "flex", gap: "4px", marginBottom: "16px" }}>
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} style={{ color: "var(--gold)", fontSize: "14px" }}>
-                      ★
-                    </span>
-                  ))}
-                </div>
-                <p
-                  style={{
-                    fontFamily: "'Manrope', sans-serif",
-                    fontSize: "11px",
-                    color: "var(--text-muted)",
-                    lineHeight: 1.6,
-                  }}
-                >
-                  Verified physical &amp; somatic transformation
-                </p>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        {/* Mobile Marquee */}
-        <div className="block md:hidden w-full overflow-hidden py-4 relative">
+        {/* Infinite Marquee */}
+        <div className="w-full overflow-hidden py-4 relative">
           <div
             style={{
               position: "absolute",
               top: 0,
               bottom: 0,
               left: 0,
-              width: "48px",
+              width: "clamp(32px, 8vw, 120px)",
               background: "linear-gradient(90deg, var(--bg-secondary) 0%, transparent 100%)",
               zIndex: 10,
               pointerEvents: "none",
@@ -579,7 +332,7 @@ export default function TestimonialsSection() {
               top: 0,
               bottom: 0,
               right: 0,
-              width: "48px",
+              width: "clamp(32px, 8vw, 120px)",
               background: "linear-gradient(-90deg, var(--bg-secondary) 0%, transparent 100%)",
               zIndex: 10,
               pointerEvents: "none",
@@ -588,10 +341,10 @@ export default function TestimonialsSection() {
 
           <div className="marquee-track">
             {testimonials.map((t, idx) => (
-              <MobileTransformationCard key={`first-${idx}`} testimonial={t} />
+              <TestimonialCard key={`first-${idx}`} testimonial={t} />
             ))}
             {testimonials.map((t, idx) => (
-              <MobileTransformationCard key={`second-${idx}`} testimonial={t} />
+              <TestimonialCard key={`second-${idx}`} testimonial={t} />
             ))}
           </div>
 
@@ -606,43 +359,15 @@ export default function TestimonialsSection() {
             }
             .marquee-track {
               display: flex;
-              gap: 20px;
+              gap: clamp(16px, 2.5vw, 28px);
               width: max-content;
-              animation: marqueeScroll 45s linear infinite;
+              animation: marqueeScroll 60s linear infinite;
+              padding: 10px 0;
             }
-            .marquee-track:hover,
-            .marquee-track:active {
+            .marquee-track:hover {
               animation-play-state: paused;
             }
           `}</style>
-        </div>
-
-        {/* Progress indicators */}
-        <div
-          className="hidden md:flex"
-          style={{
-            display: "flex",
-            gap: "8px",
-            marginTop: "60px",
-          }}
-        >
-          {testimonials.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrent(i)}
-              aria-label={`Testimonial ${i + 1}`}
-              style={{
-                width: i === current ? "32px" : "8px",
-                height: "2px",
-                background: i === current ? "var(--gold)" : "rgba(197, 168, 128, 0.25)",
-                border: "none",
-                cursor: "pointer",
-                transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
-                borderRadius: "1px",
-                padding: 0,
-              }}
-            />
-          ))}
         </div>
       </div>
     </section>
