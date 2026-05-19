@@ -102,7 +102,7 @@ export default function ProgramsSection() {
       id="programs"
       ref={ref}
       style={{
-        background: "#F9F7F3",
+        background: "var(--bg-primary)",
         padding: "140px 0",
         position: "relative",
         overflow: "hidden",
@@ -136,14 +136,14 @@ export default function ProgramsSection() {
               marginBottom: "24px",
             }}
           >
-            <div style={{ width: "40px", height: "1px", background: "#8C6B34" }} />
+            <div style={{ width: "40px", height: "1px", background: "var(--gold)" }} />
             <span
               style={{
                 fontFamily: "'Manrope', sans-serif",
                 fontSize: "10px",
                 letterSpacing: "0.35em",
                 textTransform: "uppercase",
-                color: "#8C6B34",
+                color: "var(--gold)",
                 fontWeight: 500,
               }}
             >
@@ -168,14 +168,14 @@ export default function ProgramsSection() {
                 fontFamily: "'Cormorant Garamond', serif",
                 fontSize: "clamp(38px, 4.5vw, 62px)",
                 fontWeight: 300,
-                color: "#1C140A",
+                color: "var(--text-primary)",
                 lineHeight: 1.15,
                 letterSpacing: "-0.01em",
               }}
             >
               Choose Your Path
               <br />
-              <em style={{ color: "#8C6B34" }}>to Transformation</em>
+              <em style={{ color: "var(--gold)" }}>to Transformation</em>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0 }}
@@ -185,7 +185,7 @@ export default function ProgramsSection() {
                 fontFamily: "'Manrope', sans-serif",
                 fontSize: "14px",
                 lineHeight: 1.8,
-                color: "#8A7968",
+                color: "var(--text-muted)",
                 maxWidth: "320px",
               }}
             >
@@ -200,7 +200,7 @@ export default function ProgramsSection() {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "2px",
+            gap: "24px",
           }}
           className="programs-grid"
         >
@@ -208,7 +208,7 @@ export default function ProgramsSection() {
             <motion.div
               key={program.id}
               initial={{ opacity: 0, y: 40 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
+              animate={inView ? { opacity: 1, y: hovered === program.id ? -4 : 0 } : {}}
               transition={{
                 duration: 0.9,
                 delay: 0.15 + i * 0.1,
@@ -219,14 +219,9 @@ export default function ProgramsSection() {
               style={{
                 position: "relative",
                 padding: "48px 36px",
-                background:
-                  hovered === program.id
-                    ? "rgba(240,233,222,0.95)"
-                    : "rgba(249,247,243,0.8)",
-                border:
-                  hovered === program.id
-                    ? "1px solid rgba(140,107,52,0.3)"
-                    : "1px solid rgba(140,107,52,0.08)",
+                background: "var(--bg-card)",
+                border: "1px solid var(--border)",
+                boxShadow: hovered === program.id ? "0 20px 40px rgba(0,0,0,0.08)" : "0 10px 30px rgba(0,0,0,0.04)",
                 cursor: "pointer",
                 transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                 overflow: "hidden",
@@ -246,7 +241,7 @@ export default function ProgramsSection() {
                     fontSize: "9px",
                     letterSpacing: "0.2em",
                     textTransform: "uppercase",
-                    color: "#8C6B34",
+                    color: "var(--gold)",
                     fontWeight: 600,
                   }}
                 >
@@ -261,7 +256,7 @@ export default function ProgramsSection() {
                   fontSize: "10px",
                   letterSpacing: "0.25em",
                   textTransform: "uppercase",
-                  color: "#8C6B34",
+                  color: "var(--gold)",
                   fontWeight: 500,
                   marginBottom: "16px",
                 }}
@@ -275,7 +270,7 @@ export default function ProgramsSection() {
                   fontFamily: "'Cormorant Garamond', serif",
                   fontSize: "28px",
                   fontWeight: 500,
-                  color: "#1C140A",
+                  color: "var(--text-primary)",
                   lineHeight: 1.2,
                   marginBottom: "8px",
                 }}
@@ -298,7 +293,7 @@ export default function ProgramsSection() {
                     style={{
                       fontFamily: "'Manrope', sans-serif",
                       fontSize: "10px",
-                      color: "#8A7968",
+                      color: "var(--text-muted)",
                       letterSpacing: "0.1em",
                     }}
                   >
@@ -321,7 +316,7 @@ export default function ProgramsSection() {
                   fontFamily: "'Manrope', sans-serif",
                   fontSize: "13px",
                   lineHeight: 1.8,
-                  color: "#8A7968",
+                  color: "var(--text-muted)",
                   marginBottom: "28px",
                 }}
               >
@@ -351,15 +346,15 @@ export default function ProgramsSection() {
                         style={{
                           fontFamily: "'Manrope', sans-serif",
                           fontSize: "12px",
-                          color: "#4A3B28",
+                          color: "var(--text-primary)",
                           padding: "6px 0",
                           display: "flex",
                           alignItems: "center",
                           gap: "10px",
-                          borderBottom: "1px solid rgba(140,107,52,0.06)",
+                          borderBottom: "1px solid var(--border)",
                         }}
                       >
-                        <span style={{ color: "#8C6B34", fontSize: "8px" }}>◆</span>
+                        <span style={{ color: "var(--gold)", fontSize: "8px" }}>◆</span>
                         {feature}
                       </motion.li>
                     ))}
@@ -381,7 +376,7 @@ export default function ProgramsSection() {
                   fontSize: "11px",
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
-                  color: "#8C6B34",
+                  color: "var(--gold)",
                   fontWeight: 600,
                   padding: 0,
                   transition: "gap 0.3s",
@@ -408,7 +403,7 @@ export default function ProgramsSection() {
               fontFamily: "'Cormorant Garamond', serif",
               fontSize: "18px",
               fontStyle: "italic",
-              color: "#8A7968",
+              color: "var(--text-muted)",
               marginBottom: "24px",
             }}
           >
@@ -422,8 +417,8 @@ export default function ProgramsSection() {
             whileTap={{ scale: 0.98 }}
             style={{
               background: "transparent",
-              border: "1px solid rgba(140,107,52,0.4)",
-              color: "#8C6B34",
+              border: "1px solid var(--border)",
+              color: "var(--gold)",
               padding: "14px 36px",
               fontFamily: "'Manrope', sans-serif",
               fontSize: "11px",
