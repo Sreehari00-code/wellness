@@ -258,7 +258,7 @@ export default function ServicesSection() {
                 fontFamily: "'Cormorant Garamond', serif",
                 fontSize: "clamp(28px, 5vw, 56px)",
                 fontWeight: 300,
-                color: "var(--text-primary)",
+                color: "#FFFFFF",
                 lineHeight: 1.12,
                 letterSpacing: "-0.01em",
                 margin: 0,

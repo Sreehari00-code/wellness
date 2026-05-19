@@ -310,13 +310,13 @@ export default function TestimonialsSection() {
               <div
                 style={{
                   padding: "32px 28px",
-                  background: "rgba(18, 18, 18, 0.65)",
+                  background: "var(--bg-primary)",
                   border: "1px solid var(--border)",
                   alignSelf: "flex-start",
-                  backdropFilter: "blur(12px)",
                   borderRadius: "4px",
                   width: "100%",
                   boxSizing: "border-box",
+                  boxShadow: "0 10px 40px rgba(0,0,0,0.06)",
                 }}
               >
                 {testimonials[current].image && (

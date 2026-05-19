@@ -169,7 +169,7 @@ export default function AboutSection() {
                   fontFamily: "'Cormorant Garamond', serif",
                   fontSize: "14.5px",
                   fontStyle: "italic",
-                  color: "var(--text-primary)",
+                  color: "#FFFFFF",
                   lineHeight: 1.6,
                   marginBottom: "12px",
                 }}
@@ -255,12 +255,12 @@ export default function AboutSection() {
                     fontSize: "9px",
                     letterSpacing: "0.2em",
                     textTransform: "uppercase",
-                    color: "var(--gold)",
+                    color: "var(--gold-bright)",
                     fontWeight: 600,
                     padding: "6px 14px",
                     border: "1px solid var(--border)",
                     borderRadius: "1px",
-                    background: "rgba(19, 19, 19, 0.4)",
+                    background: "rgba(10, 10, 10, 0.85)",
                   }}
                 >
                   {cred}

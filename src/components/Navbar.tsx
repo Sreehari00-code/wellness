@@ -38,15 +38,15 @@ export default function Navbar() {
         zIndex: 1000,
         borderRadius: "999px",
         background: scrolled
-          ? "rgba(10, 10, 10, 0.72)"
-          : "rgba(10, 10, 10, 0.35)",
-        backdropFilter: "blur(24px)",
-        WebkitBackdropFilter: "blur(24px)",
-        border: "1px solid rgba(197, 168, 128, 0.12)",
+          ? "rgba(255, 255, 255, 0.75)"
+          : "rgba(255, 255, 255, 0.35)",
+        backdropFilter: "blur(24px) saturate(180%)",
+        WebkitBackdropFilter: "blur(24px) saturate(180%)",
+        border: scrolled ? "1px solid rgba(255, 255, 255, 0.6)" : "1px solid rgba(255, 255, 255, 0.2)",
         boxShadow: scrolled
-          ? "0 20px 40px rgba(0, 0, 0, 0.6), 0 0 50px rgba(197, 168, 128, 0.04)"
-          : "0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(197, 168, 128, 0.01)",
-        transition: "background 0.5s, box-shadow 0.5s, border-color 0.5s",
+          ? "0 20px 40px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8)"
+          : "0 10px 30px rgba(0, 0, 0, 0.04)",
+        transition: "all 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
       }}
     >
       <nav
@@ -66,7 +66,7 @@ export default function Navbar() {
                 fontFamily: "'Cormorant Garamond', serif",
                 fontSize: "22px",
                 fontWeight: 600,
-                color: "#FFFFFF",
+                color: "var(--text-primary)",
                 letterSpacing: "0.08em",
               }}
             >
@@ -104,15 +104,15 @@ export default function Navbar() {
                   fontSize: "11px",
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
-                  color: "var(--text-muted)",
+                  color: "var(--text-primary)",
                   textDecoration: "none",
-                  fontWeight: 500,
+                  fontWeight: 600,
                   position: "relative",
                   padding: "6px 0",
                 }}
                 className="nav-link group"
               >
-                <span className="hover:text-white transition-colors duration-300">
+                <span className="hover:text-[var(--gold)] transition-colors duration-300">
                   {link.label}
                 </span>
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-[var(--gold)] transition-all duration-300 group-hover:w-full" />
@@ -154,9 +154,9 @@ export default function Navbar() {
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           style={{
-            background: "rgba(255, 255, 255, 0.05)",
-            border: "1px solid rgba(197, 168, 128, 0.15)",
-            color: "#FFFFFF",
+            background: "rgba(0, 0, 0, 0.04)",
+            border: "1px solid rgba(0, 0, 0, 0.08)",
+            color: "var(--text-primary)",
             cursor: "pointer",
             width: "44px",
             height: "44px",
@@ -182,13 +182,13 @@ export default function Navbar() {
               top: "76px",
               left: 0,
               right: 0,
-              background: "rgba(10, 10, 10, 0.96)",
-              backdropFilter: "blur(24px)",
-              WebkitBackdropFilter: "blur(24px)",
-              border: "1px solid rgba(197, 168, 128, 0.15)",
+              background: "rgba(255, 255, 255, 0.85)",
+              backdropFilter: "blur(24px) saturate(180%)",
+              WebkitBackdropFilter: "blur(24px) saturate(180%)",
+              border: "1px solid rgba(255, 255, 255, 0.6)",
               borderRadius: "24px",
               padding: "24px 32px 32px",
-              boxShadow: "0 20px 50px rgba(0,0,0,0.8)",
+              boxShadow: "0 20px 50px rgba(0,0,0,0.1)",
               overflow: "hidden",
             }}
           >
@@ -199,7 +199,7 @@ export default function Navbar() {
                   initial={{ x: -10, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: i * 0.05 }}
-                  style={{ padding: "14px 0", borderBottom: "1px solid rgba(197, 168, 128, 0.08)" }}
+                  style={{ padding: "14px 0", borderBottom: "1px solid rgba(0, 0, 0, 0.06)" }}
                 >
                   <Link
                     href={link.href}
@@ -207,7 +207,7 @@ export default function Navbar() {
                     style={{
                       fontFamily: "'Cormorant Garamond', serif",
                       fontSize: "20px",
-                      color: "#FFFFFF",
+                      color: "var(--text-primary)",
                       textDecoration: "none",
                       display: "block",
                     }}

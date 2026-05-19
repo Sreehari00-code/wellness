@@ -67,34 +67,34 @@ export default function PillarsSection() {
       style={{
         background: "var(--bg-primary)",
         position: "relative",
-        padding: "120px 0 100px",
+        paddingTop: "clamp(80px, 8vw, 128px)",
+        paddingBottom: "clamp(80px, 8vw, 128px)",
       }}
       className="border-b border-[var(--border)]"
     >
-      <div style={{ maxWidth: "1300px", margin: "0 auto", padding: "0 40px" }}>
+      <div style={{ width: "100%", maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px, 4vw, 40px)", boxSizing: "border-box" }}>
         
         {/* ── Section Header ───────────────────────────────────────── */}
-        <div ref={headerRef} style={{ marginBottom: "60px", textAlign: "center" }}>
+        <div ref={headerRef} style={{ marginBottom: "clamp(64px, 7vw, 96px)" }}>
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={headerInView ? { opacity: 1, y: 0 } : {}}
+            initial={{ opacity: 0, x: -20 }}
+            animate={headerInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
-            style={{ display: "inline-flex", alignItems: "center", gap: "16px", marginBottom: "20px" }}
+            style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "32px" }}
           >
-            <div style={{ width: "30px", height: "1px", background: "var(--gold)" }} />
-            <span style={{ fontFamily: "'Manrope', sans-serif", fontSize: "10px", letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--gold)", fontWeight: 600 }}>
+            <div style={{ width: "40px", height: "1px", background: "var(--gold)" }} />
+            <span style={{ fontFamily: "'Manrope', sans-serif", fontSize: "10px", letterSpacing: "0.35em", textTransform: "uppercase", color: "var(--gold)", fontWeight: 500 }}>
               Wellness Pillars
             </span>
-            <div style={{ width: "30px", height: "1px", background: "var(--gold)" }} />
           </motion.div>
           
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={headerInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(36px, 4vw, 56px)", fontWeight: 300, color: "var(--text-primary)", lineHeight: 1.1 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(28px, 5vw, 56px)", fontWeight: 300, color: "var(--text-primary)", lineHeight: 1.12, letterSpacing: "-0.01em", margin: 0 }}
           >
-            Five Dimensions <em style={{ color: "var(--gold)", fontStyle: "italic" }}>of Wholeness</em>
+            Five Dimensions <em style={{ color: "var(--gold)", fontStyle: "italic", fontWeight: 400 }}>of Wholeness</em>
           </motion.h2>
         </div>
 
@@ -149,7 +149,7 @@ export default function PillarsSection() {
         .pillars-bento-grid {
           display: grid;
           grid-template-columns: repeat(6, 1fr);
-          gap: 20px;
+          gap: clamp(16px, 2vw, 24px);
         }
         
         .bento-card {

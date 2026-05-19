@@ -184,7 +184,7 @@ export default function JournalSection() {
             cursor: "pointer",
             transition: "border-color 0.4s, transform 0.3s",
             overflow: "hidden",
-            boxShadow: "0 10px 40px rgba(0,0,0,0.5)",
+            boxShadow: "0 10px 40px rgba(0,0,0,0.06)",
           }}
           className="featured-article"
         >
@@ -202,16 +202,7 @@ export default function JournalSection() {
               alt="Serene morning wellness ritual with tea and lavender"
               fill
               sizes="(max-width: 900px) 100vw, 50vw"
-              style={{ objectFit: "cover", objectPosition: "center", filter: "brightness(0.75)" }}
-            />
-            {/* Dark gradient fade-in overlay */}
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                background: "linear-gradient(to top, rgba(6,6,6,0.6) 0%, transparent 60%)",
-                pointerEvents: "none",
-              }}
+              style={{ objectFit: "cover", objectPosition: "center", filter: "brightness(0.95) contrast(1.05)" }}
             />
             <div
               style={{
@@ -240,11 +231,10 @@ export default function JournalSection() {
           <div
             style={{
               padding: "60px 52px",
-              background: "rgba(18, 18, 18, 0.45)",
+              background: "var(--bg-primary)",
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
-              backdropFilter: "blur(12px)",
             }}
           >
             <div
@@ -358,14 +348,14 @@ export default function JournalSection() {
                 delay: 0.1 + i * 0.05,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              whileHover={{ y: -4, backgroundColor: "rgba(18, 18, 18, 0.75)", borderColor: "rgba(197, 168, 128, 0.35)" }}
+              whileHover={{ y: -4, boxShadow: "0 20px 40px rgba(0,0,0,0.08)", borderColor: "rgba(197, 168, 128, 0.35)" }}
               style={{
                 padding: "36px 28px",
-                background: "rgba(18, 18, 18, 0.45)",
+                background: "var(--bg-card)",
                 border: "1px solid var(--border)",
                 cursor: "pointer",
                 transition: "all 0.4s",
-                boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.04)",
               }}
             >
               <div
