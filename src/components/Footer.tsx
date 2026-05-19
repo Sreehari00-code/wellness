@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 // Inline SVG social icons
@@ -34,7 +35,7 @@ const footerLinks = {
     "Mind & Body Alignment",
     "Stress Recovery",
   ],
-  Explore: ["About Sophia", "Our Philosophy", "Sovereign Ecosystem", "Client Stories", "Wellness Journal"],
+  Explore: ["About Asuhar", "Our Philosophy", "Sovereign Ecosystem", "Client Stories", "Wellness Journal"],
   Connect: ["Book a Call", "Contact Studio", "Partnerships", "Press Enquiries", "Gift a Session"],
 };
 
@@ -73,30 +74,41 @@ export default function Footer() {
           {/* Brand Column */}
           <div>
             <Link href="/" style={{ textDecoration: "none" }}>
-              <div style={{ marginBottom: "24px" }}>
-                <div
-                  style={{
-                    fontFamily: "'Cormorant Garamond', serif",
-                    fontSize: "26px",
-                    fontWeight: 600,
-                    color: "var(--text-primary)",
-                    letterSpacing: "0.08em",
-                  }}
-                >
-                  SERENOVA
+              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "24px" }}>
+                <div style={{ width: "36px", height: "28px", position: "relative" }}>
+                  <Image
+                    src="/images/brand-logo.png"
+                    alt="Mission 444 Logo"
+                    fill
+                    sizes="36px"
+                    style={{ objectFit: "contain" }}
+                  />
                 </div>
-                <div
-                  style={{
-                    fontFamily: "'Manrope', sans-serif",
-                    fontSize: "9px",
-                    letterSpacing: "0.25em",
-                    color: "var(--gold)",
-                    fontWeight: 500,
-                    textTransform: "uppercase",
-                    marginTop: "3px",
-                  }}
-                >
-                  Wellness Studio
+                <div style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
+                  <div
+                    style={{
+                      fontFamily: "'Cormorant Garamond', serif",
+                      fontSize: "26px",
+                      fontWeight: 600,
+                      color: "var(--text-primary)",
+                      letterSpacing: "0.08em",
+                    }}
+                  >
+                    MISSION 444
+                  </div>
+                  <div
+                    style={{
+                      fontFamily: "'Manrope', sans-serif",
+                      fontSize: "9px",
+                      letterSpacing: "0.25em",
+                      color: "var(--gold)",
+                      fontWeight: 500,
+                      textTransform: "uppercase",
+                      marginTop: "3px",
+                    }}
+                  >
+                    Wellness Studio
+                  </div>
                 </div>
               </div>
             </Link>
@@ -302,7 +314,7 @@ export default function Footer() {
               opacity: 0.8,
             }}
           >
-            © 2026 Serenova Wellness Studio. All rights reserved.
+            © 2026 Mission 444 Wellness Studio. All rights reserved.
           </p>
 
           <div style={{ display: "flex", gap: "28px" }}>

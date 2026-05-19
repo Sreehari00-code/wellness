@@ -14,7 +14,7 @@ const testimonials = [
   },
   {
     quote:
-      "Being in active law enforcement, my sleep rhythms were completely broken by irregular shifts. Sophia's circadian pacing protocol and vagal nerve activation saved me from chronic fatigue.",
+      "Being in active law enforcement, my sleep rhythms were completely broken by irregular shifts. Asuhar's circadian pacing protocol and vagal nerve activation saved me from chronic fatigue.",
     author: "Kavitha Nair",
     title: "Deputy Superintendent, Chennai",
     duration: "Circadian Rhythm Alignment",
@@ -46,7 +46,7 @@ const testimonials = [
   },
   {
     quote:
-      "The intensive shifts in the ICU left my circadian rhythms shattered and my metabolic energy drained. Sophia's somatic pacing and chronobiology protocols completely restored my cellular endurance.",
+      "The intensive shifts in the ICU left my circadian rhythms shattered and my metabolic energy drained. Asuhar's somatic pacing and chronobiology protocols completely restored my cellular endurance.",
     author: "Dr. Sunitha Rao",
     title: "Chief Cardiologist, Mumbai",
     duration: "Chronobiology & Sleep Reset",
@@ -54,7 +54,7 @@ const testimonials = [
   },
   {
     quote:
-      "I had tried endless skin treatments for my stress-induced acne. Sophia looked deeper, targeting gut inflammation, nervous system regulation, and lymphatic drainage. The results speak for themselves.",
+      "I had tried endless skin treatments for my stress-induced acne. Asuhar looked deeper, targeting gut inflammation, nervous system regulation, and lymphatic drainage. The results speak for themselves.",
     author: "Kiran Reddy",
     title: "Research Biochemist, Pune",
     duration: "Lymphatic & Gut Reclamation",

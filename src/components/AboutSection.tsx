@@ -165,10 +165,10 @@ export default function AboutSection() {
             >
               <Image
                 src="/images/coach-portrait.png"
-                alt="Sophia Laurent — Wellness Coach"
+                alt="Asuhar B — Wellness Coach"
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                style={{ objectFit: "cover", objectPosition: "center top", filter: "brightness(0.85) contrast(1.05)" }}
+                style={{ objectFit: "cover", objectPosition: "center", filter: "brightness(0.9) contrast(1.02)" }}
               />
               {/* Subtle dark overlay at bottom for cinematic fade */}
               <div
@@ -211,7 +211,7 @@ export default function AboutSection() {
                   marginBottom: "clamp(8px, 1.5vw, 12px)",
                 }}
               >
-                &ldquo;Wellness is not a destination — it is a way of living with sovereignty.&rdquo;
+                &ldquo;Health is not an option; it is mandatory for normal living.&rdquo;
               </p>
               <span
                 style={{
@@ -223,7 +223,7 @@ export default function AboutSection() {
                   fontWeight: 600,
                 }}
               >
-                — Sophia Laurent
+                — Asuhar B
               </span>
             </motion.div>
           </motion.div>
@@ -284,7 +284,7 @@ export default function AboutSection() {
                 gap: "16px",
               }}
             >
-              {["IIN Certified Health Coach", "Mind-Body Medicine", "Positive Psychology", "Somatic Healing"].map((cred) => (
+              {["International Lifestyle Trainer", "Wellness & Lifestyle Builder", "Mission 444 Wellness World", "Mind-Body Medicine"].map((cred) => (
                 <span
                   key={cred}
                   style={{

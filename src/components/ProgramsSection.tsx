@@ -46,7 +46,7 @@ const programs = [
     duration: "Ongoing",
     sessions: "Custom",
     description:
-      "Bring the Serenova philosophy to your organization. Measurable improvements in team wellbeing, performance, and retention.",
+      "Bring the Mission 444 philosophy to your organization. Measurable improvements in team wellbeing, performance, and retention.",
     features: [
       "Team wellbeing assessment",
       "Workshops & masterclasses",

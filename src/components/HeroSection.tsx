@@ -122,7 +122,7 @@ export default function HeroSection() {
         >
           <div className="hidden sm:block w-12 h-[1px] bg-gradient-to-r from-transparent to-[var(--gold)]" />
           <span className="font-sans text-[8px] sm:text-[10px] font-bold tracking-[0.3em] sm:tracking-[0.38em] uppercase text-[var(--gold)]">
-            Serenova Wellness Coaching
+            Mission 444 Wellness Coaching
           </span>
           <div className="hidden sm:block w-12 h-[1px] bg-gradient-to-l from-transparent to-[var(--gold)]" />
         </motion.div>

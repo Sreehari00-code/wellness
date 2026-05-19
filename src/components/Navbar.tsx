@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -59,31 +60,42 @@ export default function Navbar() {
       >
         {/* Logo block */}
         <Link href="/" style={{ textDecoration: "none" }}>
-          <div style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
-            <span
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontSize: "22px",
-                fontWeight: 600,
-                color: "var(--text-primary)",
-                letterSpacing: "0.08em",
-              }}
-            >
-              SERENOVA
-            </span>
-            <span
-              style={{
-                fontFamily: "'Manrope', sans-serif",
-                fontSize: "8px",
-                letterSpacing: "0.28em",
-                color: "var(--gold)",
-                fontWeight: 500,
-                textTransform: "uppercase",
-                marginTop: "2px",
-              }}
-            >
-              Wellness Studio
-            </span>
+          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <div style={{ width: "28px", height: "22px", position: "relative" }}>
+              <Image
+                src="/images/brand-logo.png"
+                alt="Mission 444 Logo"
+                fill
+                sizes="28px"
+                style={{ objectFit: "contain" }}
+              />
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
+              <span
+                style={{
+                  fontFamily: "'Cormorant Garamond', serif",
+                  fontSize: "22px",
+                  fontWeight: 600,
+                  color: "var(--text-primary)",
+                  letterSpacing: "0.08em",
+                }}
+              >
+                MISSION 444
+              </span>
+              <span
+                style={{
+                  fontFamily: "'Manrope', sans-serif",
+                  fontSize: "8px",
+                  letterSpacing: "0.28em",
+                  color: "var(--gold)",
+                  fontWeight: 500,
+                  textTransform: "uppercase",
+                  marginTop: "2px",
+                }}
+              >
+                Wellness Studio
+              </span>
+            </div>
           </div>
         </Link>
 

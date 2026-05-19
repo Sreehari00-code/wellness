@@ -3,15 +3,16 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingContactButtons from "@/components/FloatingContactButtons";
+import SplashScreen from "@/components/SplashScreen";
 
 export const metadata: Metadata = {
-  title: "Serenova | Premium Wellness Coaching",
+  title: "Mission 444 | Premium Wellness Coaching",
   description:
-    "Transform your life with Serenova — a premium wellness coaching experience designed to restore balance, clarity, and vitality. Explore mindfulness, nutrition, movement, and emotional wellbeing.",
+    "Transform your life with Mission 444 — a premium wellness coaching experience designed to restore balance, clarity, and vitality. Explore mindfulness, nutrition, movement, and emotional wellbeing.",
   keywords:
     "wellness coach, mindfulness, nutrition coaching, lifestyle transformation, stress recovery, premium wellness",
   openGraph: {
-    title: "Serenova | Premium Wellness Coaching",
+    title: "Mission 444 | Premium Wellness Coaching",
     description:
       "A premium wellness experience designed to restore balance, clarity, and vitality.",
     type: "website",
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Serenova | Premium Wellness Coaching",
+    title: "Mission 444 | Premium Wellness Coaching",
     description:
       "Transform your life with premium wellness coaching — mindfulness, nutrition, movement, and emotional balance.",
   },
@@ -41,6 +42,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
+        <SplashScreen />
         <Navbar />
         <main>{children}</main>
         <Footer />
