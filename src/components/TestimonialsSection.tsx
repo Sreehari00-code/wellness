@@ -7,31 +7,67 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const testimonials = [
   {
     quote:
-      "Working with Sophia changed the trajectory of my life. I came to her exhausted, disconnected, and running on empty. Within three months, I had rebuilt my relationship with myself from the ground up.",
-    author: "Elena Marchetti",
-    title: "Creative Director, Milan",
-    duration: "12-Week 1:1 Program",
+      "I was constantly exhausted and struggling with severe back stiffness. The somatic pacing, postural integration, and breathing practices thoroughly restored my physical energy and aligned my daily focus.",
+    author: "Priya Sharma",
+    title: "Lead Tech Architect, Bangalore",
+    duration: "12-Week Somatic Restoration",
+    image: "/images/transform-1.jpg",
   },
   {
     quote:
-      "I was deeply skeptical of wellness coaching. What I found was something entirely different — a rigorous, evidence-based approach that honoured my intelligence while addressing the root causes of my burnout.",
-    author: "James Whitfield",
-    title: "Investment Partner, London",
-    duration: "Stress Recovery Program",
+      "Being in active law enforcement, my sleep rhythms were completely broken by irregular shifts. Sophia's circadian pacing protocol and vagal nerve activation saved me from chronic fatigue.",
+    author: "Kavitha Nair",
+    title: "Deputy Superintendent, Chennai",
+    duration: "Circadian Rhythm Alignment",
+    image: "/images/transform-2.jpg",
   },
   {
     quote:
-      "The corporate program transformed not just our team's wellbeing metrics, but our entire organizational culture. We are sharper, calmer, and more resilient than ever before.",
-    author: "Amara Osei",
-    title: "People Director, Amsterdam",
-    duration: "Corporate Wellness",
+      "My visceral health and breathing patterns had deteriorated. Through metabolic balancing, deep somatic recovery, and structured nervous system pacing, I gained absolute clarity and cellular vitality.",
+    author: "Dr. Rajesh Krishnan",
+    title: "Chief Sanskrit Scholar, Kochi",
+    duration: "Metabolic & Somatic Pacing",
+    image: "/images/transform-3.jpg",
   },
   {
     quote:
-      "For the first time in a decade, I genuinely look forward to mornings. The Mind & Body Alignment program gave me practices I'll carry for life — not just temporary fixes.",
-    author: "Priya Nair",
-    title: "Surgeon & Mother, Dubai",
-    duration: "Mind & Body Alignment",
+      "I had hit a profound plateau in my daily physical training. Recalibrating my sleep architecture, chronotype, and micro-nutrients restored my vitality. I feel lighter, stronger, and completely grounded.",
+    author: "Meera Deshmukh",
+    title: "Somatic Yoga Educator, Pune",
+    duration: "Nervous System Regulation",
+    image: "/images/transform-4.jpg",
+  },
+  {
+    quote:
+      "Managing high-stress corporate environments left my nervous system in constant fight-or-flight. Simple, daily somatic decompression rituals shifted me back into sustainable health and deep peace.",
+    author: "Anjali Menon",
+    title: "HR Director, Hyderabad",
+    duration: "Corporate Burnout Recovery",
+    image: "/images/transform-5.jpg",
+  },
+  {
+    quote:
+      "The intensive shifts in the ICU left my circadian rhythms shattered and my metabolic energy drained. Sophia's somatic pacing and chronobiology protocols completely restored my cellular endurance.",
+    author: "Dr. Sunitha Rao",
+    title: "Chief Cardiologist, Mumbai",
+    duration: "Chronobiology & Sleep Reset",
+    image: "/images/transform-6.jpg",
+  },
+  {
+    quote:
+      "I had tried endless skin treatments for my stress-induced acne. Sophia looked deeper, targeting gut inflammation, nervous system regulation, and lymphatic drainage. The results speak for themselves.",
+    author: "Kiran Reddy",
+    title: "Research Biochemist, Pune",
+    duration: "Lymphatic & Gut Reclamation",
+    image: "/images/transform-7.jpg",
+  },
+  {
+    quote:
+      "Years of high-stress operational deadlines took a massive toll on my cardiovascular health and weight. Rebuilding my somatic baseline and metabolic pacing completely transformed my vitality.",
+    author: "Madhavan Pillai",
+    title: "Operations Director, Kochi",
+    duration: "Metabolic Pacing Pathway",
+    image: "/images/transform-8.jpg",
   },
 ];
 
@@ -48,21 +84,22 @@ export default function TestimonialsSection() {
       id="testimonials"
       ref={ref}
       style={{
-        background: "#F0E9DE",
+        background: "var(--bg-secondary)",
         padding: "140px 0",
         position: "relative",
         overflow: "hidden",
       }}
+      className="border-b border-[var(--border)]"
     >
       {/* Large background quote mark */}
       <div
         style={{
           position: "absolute",
-          top: "60px",
+          top: "40px",
           left: "60px",
           fontFamily: "'Cormorant Garamond', serif",
           fontSize: "300px",
-          color: "rgba(140,107,52,0.07)",
+          color: "rgba(197, 168, 128, 0.03)",
           lineHeight: 1,
           userSelect: "none",
           pointerEvents: "none",
@@ -70,6 +107,21 @@ export default function TestimonialsSection() {
       >
         &ldquo;
       </div>
+
+      {/* Muted green ambient glow in corner */}
+      <div
+        style={{
+          position: "absolute",
+          top: "10%",
+          right: "-100px",
+          width: "450px",
+          height: "450px",
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(95, 114, 95, 0.06) 0%, transparent 70%)",
+          filter: "blur(70px)",
+          pointerEvents: "none",
+        }}
+      />
 
       <div style={{ maxWidth: "1300px", margin: "0 auto", padding: "0 40px" }}>
         {/* Header */}
@@ -94,14 +146,14 @@ export default function TestimonialsSection() {
                 marginBottom: "24px",
               }}
             >
-              <div style={{ width: "40px", height: "1px", background: "#8C6B34" }} />
+              <div style={{ width: "40px", height: "1px", background: "var(--gold)" }} />
               <span
                 style={{
                   fontFamily: "'Manrope', sans-serif",
                   fontSize: "10px",
                   letterSpacing: "0.35em",
                   textTransform: "uppercase",
-                  color: "#8C6B34",
+                  color: "var(--gold)",
                   fontWeight: 500,
                 }}
               >
@@ -116,12 +168,12 @@ export default function TestimonialsSection() {
                 fontFamily: "'Cormorant Garamond', serif",
                 fontSize: "clamp(38px, 4.5vw, 62px)",
                 fontWeight: 300,
-                color: "#1C140A",
+                color: "var(--text-primary)",
                 lineHeight: 1.15,
                 letterSpacing: "-0.01em",
               }}
             >
-              Lives <em style={{ color: "#8C6B34" }}>Transformed</em>
+              Realised <em className="text-gold-gradient italic not-italic">Transformation</em>
             </motion.h2>
           </div>
 
@@ -139,16 +191,16 @@ export default function TestimonialsSection() {
                 width: "48px",
                 height: "48px",
                 borderRadius: "50%",
-                border: "1px solid rgba(140,107,52,0.3)",
+                border: "1px solid var(--border)",
                 background: "transparent",
-                color: "#8C6B34",
+                color: "var(--gold)",
                 cursor: "pointer",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 transition: "all 0.3s",
               }}
-              className="nav-btn"
+              className="hover:bg-[rgba(197,168,128,0.08)] hover:border-[rgba(197,168,128,0.35)]"
             >
               <ChevronLeft size={18} />
             </button>
@@ -159,15 +211,16 @@ export default function TestimonialsSection() {
                 width: "48px",
                 height: "48px",
                 borderRadius: "50%",
-                border: "1px solid rgba(140,107,52,0.3)",
-                background: "rgba(140,107,52,0.08)",
-                color: "#8C6B34",
+                border: "1px solid rgba(197, 168, 128, 0.25)",
+                background: "rgba(197, 168, 128, 0.08)",
+                color: "var(--gold)",
                 cursor: "pointer",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 transition: "all 0.3s",
               }}
+              className="hover:bg-[rgba(197,168,128,0.15)] hover:border-[rgba(197,168,128,0.4)]"
             >
               <ChevronRight size={18} />
             </button>
@@ -185,7 +238,7 @@ export default function TestimonialsSection() {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               style={{
                 display: "grid",
-                gridTemplateColumns: "1fr 300px",
+                gridTemplateColumns: "1fr 320px",
                 gap: "80px",
                 alignItems: "start",
               }}
@@ -196,11 +249,11 @@ export default function TestimonialsSection() {
                 <blockquote
                   style={{
                     fontFamily: "'Cormorant Garamond', serif",
-                    fontSize: "clamp(24px, 3.5vw, 40px)",
+                    fontSize: "clamp(24px, 3.5vw, 36px)",
                     fontWeight: 300,
                     fontStyle: "italic",
                     lineHeight: 1.45,
-                    color: "#1C140A",
+                    color: "var(--text-primary)",
                     marginBottom: "48px",
                     letterSpacing: "-0.01em",
                   }}
@@ -209,21 +262,21 @@ export default function TestimonialsSection() {
                 </blockquote>
 
                 <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
-                  {/* Avatar placeholder */}
+                  {/* Monogram avatar */}
                   <div
                     style={{
                       width: "52px",
                       height: "52px",
                       borderRadius: "50%",
                       background:
-                        "linear-gradient(135deg, rgba(140,107,52,0.2), rgba(240,233,222,0.8))",
-                      border: "1px solid rgba(140,107,52,0.25)",
+                        "linear-gradient(135deg, rgba(197,168,128,0.15), rgba(18,18,18,0.8))",
+                      border: "1px solid var(--border)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       fontFamily: "'Cormorant Garamond', serif",
                       fontSize: "18px",
-                      color: "#8C6B34",
+                      color: "var(--gold)",
                     }}
                   >
                     {testimonials[current].author.charAt(0)}
@@ -232,9 +285,9 @@ export default function TestimonialsSection() {
                     <p
                       style={{
                         fontFamily: "'Manrope', sans-serif",
-                        fontSize: "14px",
+                        fontSize: "14.5px",
                         fontWeight: 600,
-                        color: "#4A3B28",
+                        color: "var(--gold)",
                         marginBottom: "4px",
                       }}
                     >
@@ -244,7 +297,7 @@ export default function TestimonialsSection() {
                       style={{
                         fontFamily: "'Manrope', sans-serif",
                         fontSize: "12px",
-                        color: "#8A7968",
+                        color: "var(--text-muted)",
                       }}
                     >
                       {testimonials[current].title}
@@ -256,31 +309,83 @@ export default function TestimonialsSection() {
               {/* Side card */}
               <div
                 style={{
-                  padding: "40px 32px",
-                  background: "#F0E9DE",
-                  border: "1px solid rgba(140,107,52,0.15)",
+                  padding: "32px 28px",
+                  background: "rgba(18, 18, 18, 0.65)",
+                  border: "1px solid var(--border)",
                   alignSelf: "flex-start",
+                  backdropFilter: "blur(12px)",
+                  borderRadius: "4px",
+                  width: "100%",
+                  boxSizing: "border-box",
                 }}
               >
+                {testimonials[current].image && (
+                  <div
+                    style={{
+                      position: "relative",
+                      width: "100%",
+                      aspectRatio: "1.1/1",
+                      marginBottom: "24px",
+                      overflow: "hidden",
+                      border: "1px solid rgba(197, 168, 128, 0.15)",
+                      borderRadius: "2px",
+                    }}
+                  >
+                    <img
+                      src={testimonials[current].image}
+                      alt={`${testimonials[current].author} transformation`}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        filter: "brightness(0.95) contrast(1.05)",
+                      }}
+                    />
+                    {/* Before & After Badge */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        bottom: "8px",
+                        left: "8px",
+                        right: "8px",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        fontFamily: "'Manrope', sans-serif",
+                        fontSize: "8.5px",
+                        letterSpacing: "0.15em",
+                        color: "var(--gold)",
+                        textTransform: "uppercase",
+                        fontWeight: 600,
+                        background: "rgba(10, 10, 10, 0.8)",
+                        padding: "4px 10px",
+                        borderRadius: "1px",
+                        boxShadow: "0 2px 10px rgba(0,0,0,0.5)",
+                      }}
+                    >
+                      <span>Before</span>
+                      <span>After</span>
+                    </div>
+                  </div>
+                )}
                 <p
                   style={{
                     fontFamily: "'Manrope', sans-serif",
                     fontSize: "9px",
                     letterSpacing: "0.25em",
                     textTransform: "uppercase",
-                    color: "#8C6B34",
+                    color: "var(--gold)",
                     marginBottom: "16px",
-                    fontWeight: 500,
+                    fontWeight: 600,
                   }}
                 >
-                  Program Completed
+                  Completed Path
                 </p>
                 <p
                   style={{
                     fontFamily: "'Cormorant Garamond', serif",
-                    fontSize: "18px",
-                    color: "#1C140A",
-                    marginBottom: "32px",
+                    fontSize: "19px",
+                    color: "var(--text-primary)",
+                    marginBottom: "28px",
                     lineHeight: 1.4,
                   }}
                 >
@@ -290,7 +395,7 @@ export default function TestimonialsSection() {
                   style={{
                     width: "30px",
                     height: "1px",
-                    background: "rgba(140,107,52,0.3)",
+                    background: "var(--border)",
                     marginBottom: "24px",
                   }}
                 />
@@ -298,7 +403,7 @@ export default function TestimonialsSection() {
                 {/* Rating */}
                 <div style={{ display: "flex", gap: "4px", marginBottom: "16px" }}>
                   {[...Array(5)].map((_, i) => (
-                    <span key={i} style={{ color: "#8C6B34", fontSize: "14px" }}>
+                    <span key={i} style={{ color: "var(--gold)", fontSize: "14px" }}>
                       ★
                     </span>
                   ))}
@@ -307,11 +412,11 @@ export default function TestimonialsSection() {
                   style={{
                     fontFamily: "'Manrope', sans-serif",
                     fontSize: "11px",
-                    color: "#8A7968",
+                    color: "var(--text-muted)",
                     lineHeight: 1.6,
                   }}
                 >
-                  Verified client experience
+                  Verified physical &amp; somatic transformation
                 </p>
               </div>
             </motion.div>
@@ -334,7 +439,7 @@ export default function TestimonialsSection() {
               style={{
                 width: i === current ? "32px" : "8px",
                 height: "2px",
-                background: i === current ? "#8C6B34" : "rgba(140,107,52,0.25)",
+                background: i === current ? "var(--gold)" : "rgba(197, 168, 128, 0.25)",
                 border: "none",
                 cursor: "pointer",
                 transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -347,13 +452,11 @@ export default function TestimonialsSection() {
       </div>
 
       <style jsx>{`
-        .testimonial-layout {
-          @media (max-width: 900px) {
+        @media (max-width: 900px) {
+          .testimonial-layout {
             grid-template-columns: 1fr !important;
+            gap: 48px !important;
           }
-        }
-        .nav-btn:hover {
-          background: rgba(140, 107, 52, 0.1) !important;
         }
       `}</style>
     </section>

@@ -10,43 +10,43 @@ const articles = [
     category: "Mindfulness",
     title: "The Art of Doing Nothing: Why Rest Is Your Most Productive Act",
     excerpt:
-      "In a culture that glorifies busyness, learning to rest with intention is a radical — and transformative — practice.",
+      "In a culture that glorifies busyness, learning to rest with biological intention is a radical — and highly therapeutic — practice.",
     readTime: "6 min read",
     date: "May 2025",
     featured: true,
   },
   {
     category: "Sleep Optimization",
-    title: "The Architecture of Deep Sleep: A Science-Backed Protocol",
+    title: "Circadian Synchronization: A Science-Backed Protocol",
     excerpt:
-      "How to design your sleep environment, timing, and pre-sleep rituals for truly restorative, regenerative rest.",
+      "How to design your light exposure, temperature cycles, and pre-sleep rituals for truly restorative, deep cellular repair.",
     readTime: "8 min read",
     date: "Apr 2025",
     featured: false,
   },
   {
     category: "Stress Management",
-    title: "Rewiring Your Nervous System: Beyond Meditation",
+    title: "Vagal Recalibration: Somatic Pacing Beyond Meditation",
     excerpt:
-      "Somatic tools, breathwork sequences, and daily micro-practices that retrain your body's stress response at the root level.",
+      "Daily micro-practices, somatic release techniques, and respiratory drills that retrain your body's stress threshold.",
     readTime: "7 min read",
     date: "Apr 2025",
     featured: false,
   },
   {
     category: "Nutrition",
-    title: "Eating for Energy: The Anti-Inflammatory Approach",
+    title: "Mitochondrial Feeding: An Integrative Nutrition Strategy",
     excerpt:
-      "Move beyond calorie counting. Understand how food becomes information for your cells, hormones, and mood.",
+      "Beyond standard macros. Learn how raw food elements become cellular instruction codes for thyroid, hormone, and cognitive pacing.",
     readTime: "5 min read",
     date: "Mar 2025",
     featured: false,
   },
   {
-    category: "Productivity & Balance",
-    title: "The Integrated Life: Ending the War Between Work and Wellbeing",
+    category: "Circadian Pacing",
+    title: "Ending the Chronic Burnout Cycle: A New Framework",
     excerpt:
-      "A new framework for high achievers who refuse to choose between ambition and health — because they should never have to.",
+      "An intensive guide for high-performers who refuse to select between creative leadership and physical wellbeing.",
     readTime: "9 min read",
     date: "Mar 2025",
     featured: false,
@@ -65,12 +65,14 @@ export default function JournalSection() {
       id="journal"
       ref={ref}
       style={{
-        background: "#F9F7F3",
+        background: "var(--bg-primary)",
         padding: "140px 0",
         position: "relative",
         overflow: "hidden",
       }}
+      className="border-b border-[var(--border)]"
     >
+      {/* Soft warm-beige glow in top right */}
       <div
         style={{
           position: "absolute",
@@ -79,7 +81,7 @@ export default function JournalSection() {
           width: "600px",
           height: "400px",
           background:
-            "radial-gradient(ellipse, rgba(140,107,52,0.04) 0%, transparent 70%)",
+            "radial-gradient(ellipse, rgba(197, 168, 128, 0.04) 0%, transparent 70%)",
           filter: "blur(80px)",
           pointerEvents: "none",
         }}
@@ -101,6 +103,7 @@ export default function JournalSection() {
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.5, ease: "easeOut" }}
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -108,14 +111,14 @@ export default function JournalSection() {
                 marginBottom: "24px",
               }}
             >
-              <div style={{ width: "40px", height: "1px", background: "#8C6B34" }} />
+              <div style={{ width: "40px", height: "1px", background: "var(--gold)" }} />
               <span
                 style={{
                   fontFamily: "'Manrope', sans-serif",
                   fontSize: "10px",
                   letterSpacing: "0.35em",
                   textTransform: "uppercase",
-                  color: "#8C6B34",
+                  color: "var(--gold)",
                   fontWeight: 500,
                 }}
               >
@@ -124,21 +127,21 @@ export default function JournalSection() {
             </motion.div>
 
             <motion.h2
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.1, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ delay: 0.05, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontSize: "clamp(38px, 4.5vw, 62px)",
                 fontWeight: 300,
-                color: "#1C140A",
+                color: "var(--text-primary)",
                 lineHeight: 1.15,
                 letterSpacing: "-0.01em",
               }}
             >
               Insights for the
               <br />
-              <em style={{ color: "#8C6B34" }}>Conscious Life</em>
+              <em className="text-gold-gradient italic not-italic">Sovereign Mind</em>
             </motion.h2>
           </div>
 
@@ -146,7 +149,7 @@ export default function JournalSection() {
             href="#"
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.15, duration: 0.4 }}
             whileHover={{ gap: "10px" }}
             style={{
               display: "flex",
@@ -156,7 +159,7 @@ export default function JournalSection() {
               fontSize: "11px",
               letterSpacing: "0.2em",
               textTransform: "uppercase",
-              color: "#8C6B34",
+              color: "var(--gold)",
               textDecoration: "none",
               fontWeight: 600,
               transition: "gap 0.3s",
@@ -168,19 +171,20 @@ export default function JournalSection() {
 
         {/* Featured article */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           whileHover={{ y: -4 }}
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
             gap: "0",
-            marginBottom: "2px",
-            border: "1px solid rgba(140,107,52,0.12)",
+            marginBottom: "32px",
+            border: "1px solid var(--border)",
             cursor: "pointer",
-            transition: "border-color 0.4s",
+            transition: "border-color 0.4s, transform 0.3s",
             overflow: "hidden",
+            boxShadow: "0 10px 40px rgba(0,0,0,0.5)",
           }}
           className="featured-article"
         >
@@ -190,6 +194,7 @@ export default function JournalSection() {
               aspectRatio: "16/10",
               position: "relative",
               overflow: "hidden",
+              borderRight: "1px solid var(--border)",
             }}
           >
             <Image
@@ -197,14 +202,14 @@ export default function JournalSection() {
               alt="Serene morning wellness ritual with tea and lavender"
               fill
               sizes="(max-width: 900px) 100vw, 50vw"
-              style={{ objectFit: "cover", objectPosition: "center" }}
+              style={{ objectFit: "cover", objectPosition: "center", filter: "brightness(0.75)" }}
             />
-            {/* Subtle premium warm gradient overlay */}
+            {/* Dark gradient fade-in overlay */}
             <div
               style={{
                 position: "absolute",
                 inset: 0,
-                background: "linear-gradient(to top, rgba(240,233,222,0.3) 0%, transparent 60%)",
+                background: "linear-gradient(to top, rgba(6,6,6,0.6) 0%, transparent 60%)",
                 pointerEvents: "none",
               }}
             />
@@ -214,20 +219,20 @@ export default function JournalSection() {
                 bottom: "24px",
                 left: "24px",
                 padding: "6px 14px",
-                background: "rgba(249,247,243,0.92)",
-                border: "1px solid rgba(140,107,52,0.22)",
+                background: "rgba(18, 18, 18, 0.95)",
+                border: "1px solid var(--border)",
                 fontFamily: "'Manrope', sans-serif",
                 fontSize: "9px",
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                color: "#8C6B34",
+                color: "var(--gold)",
                 fontWeight: 600,
                 borderRadius: "1px",
-                boxShadow: "0 4px 12px rgba(21, 61, 53, 0.05)",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.5)",
                 zIndex: 2,
               }}
             >
-              Featured
+              Featured Text
             </div>
           </div>
 
@@ -235,10 +240,11 @@ export default function JournalSection() {
           <div
             style={{
               padding: "60px 52px",
-              background: "#F0E9DE",
+              background: "rgba(18, 18, 18, 0.45)",
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
+              backdropFilter: "blur(12px)",
             }}
           >
             <div
@@ -255,18 +261,18 @@ export default function JournalSection() {
                   fontSize: "9px",
                   letterSpacing: "0.25em",
                   textTransform: "uppercase",
-                  color: "#8C6B34",
+                  color: "var(--gold)",
                   fontWeight: 600,
                 }}
               >
                 {featured.category}
               </span>
-              <span style={{ color: "rgba(100,85,65,0.4)", fontSize: "10px" }}>·</span>
+              <span style={{ color: "rgba(197, 168, 128, 0.3)", fontSize: "10px" }}>·</span>
               <span
                 style={{
                   fontFamily: "'Manrope', sans-serif",
                   fontSize: "11px",
-                  color: "#8A7968",
+                  color: "var(--text-muted)",
                 }}
               >
                 {featured.date}
@@ -278,8 +284,8 @@ export default function JournalSection() {
                 fontFamily: "'Cormorant Garamond', serif",
                 fontSize: "clamp(24px, 2.5vw, 34px)",
                 fontWeight: 400,
-                color: "#1C140A",
-                lineHeight: 1.3,
+                color: "var(--text-primary)",
+                lineHeight: 1.35,
                 marginBottom: "20px",
               }}
             >
@@ -289,9 +295,9 @@ export default function JournalSection() {
             <p
               style={{
                 fontFamily: "'Manrope', sans-serif",
-                fontSize: "13px",
+                fontSize: "13.5px",
                 lineHeight: 1.8,
-                color: "#8A7968",
+                color: "var(--text-muted)",
                 marginBottom: "36px",
               }}
             >
@@ -309,7 +315,7 @@ export default function JournalSection() {
                 style={{
                   fontFamily: "'Manrope', sans-serif",
                   fontSize: "11px",
-                  color: "#8A7968",
+                  color: "var(--text-muted)",
                 }}
               >
                 {featured.readTime}
@@ -321,13 +327,13 @@ export default function JournalSection() {
                     fontSize: "11px",
                     letterSpacing: "0.15em",
                     textTransform: "uppercase",
-                    color: "#8C6B34",
+                    color: "var(--gold)",
                     fontWeight: 600,
                   }}
                 >
-                  Read
+                  Read Article
                 </span>
-                <ArrowUpRight size={14} color="#8C6B34" />
+                <ArrowUpRight size={14} color="var(--gold)" />
               </div>
             </div>
           </div>
@@ -338,27 +344,28 @@ export default function JournalSection() {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "2px",
+            gap: "24px",
           }}
           className="articles-grid"
         >
           {rest.map((article, i) => (
             <motion.div
               key={article.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{
-                duration: 0.8,
-                delay: 0.3 + i * 0.1,
+                duration: 0.5,
+                delay: 0.1 + i * 0.05,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              whileHover={{ y: -4, backgroundColor: "rgba(240,233,222,0.95)" }}
+              whileHover={{ y: -4, backgroundColor: "rgba(18, 18, 18, 0.75)", borderColor: "rgba(197, 168, 128, 0.35)" }}
               style={{
                 padding: "36px 28px",
-                background: "#F0E9DE",
-                border: "1px solid rgba(140,107,52,0.08)",
+                background: "rgba(18, 18, 18, 0.45)",
+                border: "1px solid var(--border)",
                 cursor: "pointer",
                 transition: "all 0.4s",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
               }}
             >
               <div
@@ -375,7 +382,7 @@ export default function JournalSection() {
                     fontSize: "9px",
                     letterSpacing: "0.2em",
                     textTransform: "uppercase",
-                    color: "#8C6B34",
+                    color: "var(--gold)",
                     fontWeight: 600,
                   }}
                 >
@@ -386,9 +393,9 @@ export default function JournalSection() {
               <h4
                 style={{
                   fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: "18px",
+                  fontSize: "19px",
                   fontWeight: 400,
-                  color: "#1C140A",
+                  color: "var(--text-primary)",
                   lineHeight: 1.35,
                   marginBottom: "14px",
                 }}
@@ -401,7 +408,7 @@ export default function JournalSection() {
                   fontFamily: "'Manrope', sans-serif",
                   fontSize: "12px",
                   lineHeight: 1.75,
-                  color: "#8A7968",
+                  color: "var(--text-muted)",
                   marginBottom: "24px",
                 }}
               >
@@ -414,19 +421,19 @@ export default function JournalSection() {
                   justifyContent: "space-between",
                   alignItems: "center",
                   paddingTop: "16px",
-                  borderTop: "1px solid rgba(140,107,52,0.08)",
+                  borderTop: "1px solid var(--border)",
                 }}
               >
                 <span
                   style={{
                     fontFamily: "'Manrope', sans-serif",
                     fontSize: "10px",
-                    color: "#8A7968",
+                    color: "var(--text-muted)",
                   }}
                 >
                   {article.readTime}
                 </span>
-                <ArrowUpRight size={14} color="rgba(140,107,52,0.5)" />
+                <ArrowUpRight size={14} color="rgba(197, 168, 128, 0.5)" />
               </div>
             </motion.div>
           ))}
@@ -440,6 +447,7 @@ export default function JournalSection() {
           }
           .articles-grid {
             grid-template-columns: repeat(2, 1fr) !important;
+            gap: 20px !important;
           }
         }
         @media (max-width: 600px) {

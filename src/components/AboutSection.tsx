@@ -20,13 +20,14 @@ export default function AboutSection() {
       id="about"
       ref={ref}
       style={{
-        background: "#F9F7F3",
+        background: "var(--bg-primary)",
         padding: "140px 0",
         position: "relative",
         overflow: "hidden",
       }}
+      className="border-b border-[var(--border)]"
     >
-      {/* Subtle background accent */}
+      {/* Subtle background earth-green accent glow */}
       <div
         style={{
           position: "absolute",
@@ -36,7 +37,23 @@ export default function AboutSection() {
           height: "700px",
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgba(140,107,52,0.04) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(95, 114, 95, 0.08) 0%, transparent 70%)",
+          filter: "blur(80px)",
+          pointerEvents: "none",
+        }}
+      />
+      
+      {/* Muted gold glow on right */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "10%",
+          right: "-100px",
+          width: "500px",
+          height: "500px",
+          borderRadius: "50%",
+          background:
+            "radial-gradient(circle, rgba(197, 168, 128, 0.04) 0%, transparent 70%)",
           filter: "blur(80px)",
           pointerEvents: "none",
         }}
@@ -65,7 +82,7 @@ export default function AboutSection() {
             style={{
               width: "40px",
               height: "1px",
-              background: "#8C6B34",
+              background: "var(--gold)",
             }}
           />
           <span
@@ -74,7 +91,7 @@ export default function AboutSection() {
               fontSize: "10px",
               letterSpacing: "0.35em",
               textTransform: "uppercase",
-              color: "#8C6B34",
+              color: "var(--gold)",
               fontWeight: 500,
             }}
           >
@@ -106,6 +123,7 @@ export default function AboutSection() {
                 position: "relative",
                 overflow: "hidden",
                 borderRadius: "2px",
+                border: "1px solid var(--border)",
               }}
             >
               <Image
@@ -113,57 +131,59 @@ export default function AboutSection() {
                 alt="Sophia Laurent — Wellness Coach"
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                style={{ objectFit: "cover", objectPosition: "center top" }}
+                style={{ objectFit: "cover", objectPosition: "center top", filter: "brightness(0.85) contrast(1.05)" }}
               />
-              {/* Subtle warm overlay at bottom for fade */}
+              {/* Subtle dark overlay at bottom for cinematic fade */}
               <div
                 style={{
                   position: "absolute",
                   bottom: 0,
                   left: 0,
                   right: 0,
-                  height: "30%",
-                  background: "linear-gradient(to top, rgba(240,233,222,0.4), transparent)",
+                  height: "35%",
+                  background: "linear-gradient(to top, var(--bg-primary) 0%, transparent 100%)",
                   pointerEvents: "none",
                 }}
               />
             </div>
 
-            {/* Floating quote card */}
+            {/* Floating luxury quote card */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.6, duration: 1 }}
               style={{
                 position: "absolute",
-                bottom: "-30px",
-                right: "-30px",
+                bottom: "-20px",
+                right: "-20px",
                 padding: "24px 28px",
-                background: "rgba(240,233,222,0.95)",
-                border: "1px solid rgba(140,107,52,0.2)",
-                maxWidth: "220px",
-                backdropFilter: "blur(12px)",
+                background: "rgba(18, 18, 18, 0.85)",
+                border: "1px solid var(--border)",
+                maxWidth: "240px",
+                backdropFilter: "blur(16px)",
+                boxShadow: "0 20px 40px rgba(0,0,0,0.6)",
               }}
             >
               <p
                 style={{
                   fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: "14px",
+                  fontSize: "14.5px",
                   fontStyle: "italic",
-                  color: "#4A3B28",
+                  color: "var(--text-primary)",
                   lineHeight: 1.6,
                   marginBottom: "12px",
                 }}
               >
-                &ldquo;Wellness is not a destination — it is a way of
-                living.&rdquo;
+                &ldquo;Wellness is not a destination — it is a way of living with sovereignty.&rdquo;
               </p>
               <span
                 style={{
                   fontFamily: "'Manrope', sans-serif",
-                  fontSize: "10px",
-                  color: "#8C6B34",
+                  fontSize: "9px",
+                  color: "var(--gold)",
                   letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                  fontWeight: 600,
                 }}
               >
                 — Sophia Laurent
@@ -179,21 +199,21 @@ export default function AboutSection() {
               transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
-                fontSize: "clamp(36px, 4.5vw, 58px)",
+                fontSize: "clamp(36px, 4.5vw, 56px)",
                 fontWeight: 300,
                 lineHeight: 1.15,
-                color: "#1C140A",
+                color: "var(--text-primary)",
                 marginBottom: "32px",
                 letterSpacing: "-0.01em",
               }}
             >
               A Philosophy Born From{" "}
-              <em style={{ color: "#8C6B34" }}>Personal Transformation</em>
+              <em className="text-gold-gradient italic not-italic">Personal Sovereignty</em>
             </motion.h2>
 
-            {["After years navigating burnout, chronic stress, and disconnection, I found my way back to myself through an integrative approach to wellness — one that honours the body, mind, and spirit as a unified whole.",
-              "Today, I guide high-achieving individuals and teams toward a life of sustainable vitality. My methodology is grounded in evidence-based practices, ancient wisdom traditions, and deep listening — because real transformation begins within.",
-              "Every program I offer is a personalized journey. There are no generic prescriptions here — only genuine partnership in the pursuit of your most vital, aligned, and purposeful self."
+            {["After years navigating burnout, chronic stress, and spiritual disconnection, I found my way back to myself through an integrative approach to wellness — one that honours the body, mind, and spirit as a unified sovereign whole.",
+              "Today, I guide high-achieving individuals and teams toward a life of sustainable vitality. My methodology is grounded in evidence-based neurobiology, ancient somatic traditions, and deep listening — because real transformation begins within.",
+              "Every program I offer is a personalized, high-touch journey. There are no generic templates here — only genuine partnership in the pursuit of your most vital, aligned, and purposeful self."
             ].map((paragraph, i) => (
               <motion.p
                 key={i}
@@ -202,9 +222,9 @@ export default function AboutSection() {
                 transition={{ duration: 0.8, delay: 0.4 + i * 0.15 }}
                 style={{
                   fontFamily: "'Manrope', sans-serif",
-                  fontSize: "15px",
-                  lineHeight: 1.9,
-                  color: "#8A7968",
+                  fontSize: "14.5px",
+                  lineHeight: 1.85,
+                  color: "var(--text-muted)",
                   marginBottom: "20px",
                   fontWeight: 400,
                 }}
@@ -221,10 +241,10 @@ export default function AboutSection() {
               style={{
                 marginTop: "40px",
                 paddingTop: "32px",
-                borderTop: "1px solid rgba(140,107,52,0.15)",
+                borderTop: "1px solid var(--border)",
                 display: "flex",
                 flexWrap: "wrap",
-                gap: "24px",
+                gap: "16px",
               }}
             >
               {["IIN Certified Health Coach", "Mind-Body Medicine", "Positive Psychology", "Somatic Healing"].map((cred) => (
@@ -232,14 +252,15 @@ export default function AboutSection() {
                   key={cred}
                   style={{
                     fontFamily: "'Manrope', sans-serif",
-                    fontSize: "10px",
+                    fontSize: "9px",
                     letterSpacing: "0.2em",
                     textTransform: "uppercase",
-                    color: "#8C6B34",
-                    fontWeight: 500,
+                    color: "var(--gold)",
+                    fontWeight: 600,
                     padding: "6px 14px",
-                    border: "1px solid rgba(140,107,52,0.2)",
+                    border: "1px solid var(--border)",
                     borderRadius: "1px",
+                    background: "rgba(19, 19, 19, 0.4)",
                   }}
                 >
                   {cred}
@@ -259,10 +280,10 @@ export default function AboutSection() {
             display: "grid",
             gridTemplateColumns: "repeat(4, 1fr)",
             gap: "1px",
-            background: "rgba(140,107,52,0.12)",
-            border: "1px solid rgba(140,107,52,0.12)",
+            background: "var(--border)",
+            border: "1px solid var(--border)",
           }}
-          className="stats-grid"
+          className="stats-grid animate-gpu"
         >
           {stats.map((stat, i) => (
             <div
@@ -270,7 +291,7 @@ export default function AboutSection() {
               style={{
                 padding: "48px 32px",
                 textAlign: "center",
-                background: "#EBE4D8",
+                background: "var(--bg-card)",
               }}
             >
               <div
@@ -278,9 +299,10 @@ export default function AboutSection() {
                   fontFamily: "'Cormorant Garamond', serif",
                   fontSize: "clamp(36px, 4vw, 52px)",
                   fontWeight: 300,
-                  color: "#8C6B34",
+                  color: "var(--gold)",
                   marginBottom: "8px",
                   lineHeight: 1,
+                  letterSpacing: "-0.01em",
                 }}
               >
                 {stat.value}
@@ -288,10 +310,10 @@ export default function AboutSection() {
               <div
                 style={{
                   fontFamily: "'Manrope', sans-serif",
-                  fontSize: "11px",
+                  fontSize: "10px",
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
-                  color: "#8A7968",
+                  color: "var(--text-muted)",
                   fontWeight: 500,
                 }}
               >
@@ -306,6 +328,7 @@ export default function AboutSection() {
         @media (max-width: 900px) {
           .about-grid {
             grid-template-columns: 1fr !important;
+            gap: 50px !important;
           }
           .stats-grid {
             grid-template-columns: repeat(2, 1fr) !important;

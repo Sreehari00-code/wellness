@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { href: "#about", label: "About" },
+  { href: "#services", label: "Services" },
   { href: "#pillars", label: "Pillars" },
   { href: "#programs", label: "Programs" },
   { href: "#testimonials", label: "Stories" },
@@ -18,55 +19,54 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 60);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <motion.header
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+      initial={{ y: -100, x: "-50%", opacity: 0 }}
+      animate={{ y: 0, x: "-50%", opacity: 1 }}
+      transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
       style={{
         position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
+        top: "24px",
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: "min(1280px, calc(100% - 48px))",
         zIndex: 1000,
-        transition: "all 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
+        borderRadius: "999px",
         background: scrolled
-          ? "rgba(249,247,243,0.92)"
-          : "transparent",
-        backdropFilter: scrolled ? "blur(20px)" : "none",
-        borderBottom: scrolled
-          ? "1px solid rgba(140,107,52,0.12)"
-          : "none",
+          ? "rgba(10, 10, 10, 0.72)"
+          : "rgba(10, 10, 10, 0.35)",
+        backdropFilter: "blur(24px)",
+        WebkitBackdropFilter: "blur(24px)",
+        border: "1px solid rgba(197, 168, 128, 0.12)",
+        boxShadow: scrolled
+          ? "0 20px 40px rgba(0, 0, 0, 0.6), 0 0 50px rgba(197, 168, 128, 0.04)"
+          : "0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(197, 168, 128, 0.01)",
+        transition: "background 0.5s, box-shadow 0.5s, border-color 0.5s",
       }}
     >
       <nav
         style={{
-          maxWidth: "1400px",
-          margin: "0 auto",
-          padding: "0 40px",
-          height: "72px",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
+          padding: "8px 24px",
+          height: "64px",
         }}
       >
-        {/* Logo */}
+        {/* Logo block */}
         <Link href="/" style={{ textDecoration: "none" }}>
-          <motion.div
-            whileHover={{ opacity: 0.8 }}
-            style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}
-          >
+          <div style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
             <span
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontSize: "22px",
                 fontWeight: 600,
-                color: "#4A3B28",
+                color: "#FFFFFF",
                 letterSpacing: "0.08em",
               }}
             >
@@ -75,9 +75,9 @@ export default function Navbar() {
             <span
               style={{
                 fontFamily: "'Manrope', sans-serif",
-                fontSize: "9px",
-                letterSpacing: "0.25em",
-                color: "#8C6B34",
+                fontSize: "8px",
+                letterSpacing: "0.28em",
+                color: "var(--gold)",
                 fontWeight: 500,
                 textTransform: "uppercase",
                 marginTop: "2px",
@@ -85,18 +85,15 @@ export default function Navbar() {
             >
               Wellness Studio
             </span>
-          </motion.div>
+          </div>
         </Link>
 
-        {/* Desktop nav */}
+        {/* Minimal Navigation links */}
         <ul
           style={{
-            display: "flex",
-            gap: "40px",
             listStyle: "none",
-            alignItems: "center",
           }}
-          className="hidden md:flex"
+          className="hidden md:flex items-center gap-[32px] p-0 m-0"
         >
           {navLinks.map((link) => (
             <li key={link.href}>
@@ -104,94 +101,105 @@ export default function Navbar() {
                 href={link.href}
                 style={{
                   fontFamily: "'Manrope', sans-serif",
-                  fontSize: "12px",
+                  fontSize: "11px",
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
-                  color: "#8A7968",
+                  color: "var(--text-muted)",
                   textDecoration: "none",
                   fontWeight: 500,
                   position: "relative",
+                  padding: "6px 0",
                 }}
-                className="nav-link"
+                className="nav-link group"
               >
-                <motion.span
-                  whileHover={{ color: "#4A3B28" }}
-                  style={{ display: "block" }}
-                >
+                <span className="hover:text-white transition-colors duration-300">
                   {link.label}
-                </motion.span>
+                </span>
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-[var(--gold)] transition-all duration-300 group-hover:w-full" />
               </Link>
             </li>
           ))}
         </ul>
 
-        {/* CTA */}
-        <div className="hidden md:flex" style={{ alignItems: "center", gap: "20px" }}>
+        {/* Elegant CTA button inside the pill navbar */}
+        <div className="hidden md:flex items-center">
           <motion.div
-            whileHover={{ scale: 1.03, boxShadow: "0 0 30px rgba(140,107,52,0.25)" }}
+            whileHover={{ scale: 1.04, boxShadow: "0 0 30px rgba(197, 168, 128, 0.25)" }}
             whileTap={{ scale: 0.98 }}
           >
             <Link
               href="#programs"
               style={{
                 display: "inline-flex",
-                background: "linear-gradient(135deg, #8C6B34, #A87E42)",
-                color: "#F9F7F3",
+                background: "linear-gradient(135deg, var(--gold), var(--gold-light))",
+                color: "var(--bg-primary)",
                 border: "none",
-                padding: "10px 26px",
+                padding: "10px 24px",
                 fontFamily: "'Manrope', sans-serif",
-                fontSize: "11px",
+                fontSize: "10px",
                 fontWeight: 700,
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
                 cursor: "pointer",
-                borderRadius: "2px",
+                borderRadius: "999px",
                 textDecoration: "none",
               }}
             >
-              Book a Session
+              Request Session
             </Link>
           </motion.div>
         </div>
 
-        {/* Mobile menu toggle */}
+        {/* Responsive Mobile Hamburger */}
         <button
-          className="md:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
           style={{
-            background: "none",
-            border: "none",
-            color: "#4A3B28",
+            background: "rgba(255, 255, 255, 0.05)",
+            border: "1px solid rgba(197, 168, 128, 0.15)",
+            color: "#FFFFFF",
             cursor: "pointer",
+            width: "44px",
+            height: "44px",
+            borderRadius: "50%",
           }}
+          className="md:hidden flex items-center justify-center"
           aria-label="Toggle menu"
         >
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          {menuOpen ? <X size={18} /> : <Menu size={18} />}
         </button>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Floating Mobile Dropdown Menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.4 }}
+            initial={{ opacity: 0, scale: 0.95, y: -15 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: -15 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
             style={{
-              background: "rgba(249,247,243,0.98)",
-              borderTop: "1px solid rgba(140,107,52,0.12)",
+              position: "absolute",
+              top: "76px",
+              left: 0,
+              right: 0,
+              background: "rgba(10, 10, 10, 0.96)",
+              backdropFilter: "blur(24px)",
+              WebkitBackdropFilter: "blur(24px)",
+              border: "1px solid rgba(197, 168, 128, 0.15)",
+              borderRadius: "24px",
+              padding: "24px 32px 32px",
+              boxShadow: "0 20px 50px rgba(0,0,0,0.8)",
               overflow: "hidden",
             }}
           >
-            <div style={{ padding: "24px 40px 32px" }}>
+            <div>
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.href}
-                  initial={{ x: -20, opacity: 0 }}
+                  initial={{ x: -10, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: i * 0.08 }}
-                  style={{ padding: "12px 0", borderBottom: "1px solid rgba(140,107,52,0.08)" }}
+                  transition={{ delay: i * 0.05 }}
+                  style={{ padding: "14px 0", borderBottom: "1px solid rgba(197, 168, 128, 0.08)" }}
                 >
                   <Link
                     href={link.href}
@@ -199,8 +207,9 @@ export default function Navbar() {
                     style={{
                       fontFamily: "'Cormorant Garamond', serif",
                       fontSize: "20px",
-                      color: "#4A3B28",
+                      color: "#FFFFFF",
                       textDecoration: "none",
+                      display: "block",
                     }}
                   >
                     {link.label}
@@ -210,7 +219,7 @@ export default function Navbar() {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
+                transition={{ delay: 0.35 }}
                 style={{ marginTop: "24px" }}
               >
                 <Link
@@ -219,22 +228,22 @@ export default function Navbar() {
                   style={{
                     display: "inline-flex",
                     justifyContent: "center",
-                    background: "linear-gradient(135deg, #8C6B34, #A87E42)",
-                    color: "#F9F7F3",
+                    background: "linear-gradient(135deg, var(--gold), var(--gold-light))",
+                    color: "var(--bg-primary)",
                     border: "none",
                     padding: "12px 32px",
                     fontFamily: "'Manrope', sans-serif",
-                    fontSize: "12px",
+                    fontSize: "11px",
                     fontWeight: 700,
                     letterSpacing: "0.15em",
                     textTransform: "uppercase",
                     cursor: "pointer",
                     width: "100%",
-                    borderRadius: "2px",
+                    borderRadius: "999px",
                     textDecoration: "none",
                   }}
                 >
-                  Book a Session
+                  Request Session
                 </Link>
               </motion.div>
             </div>

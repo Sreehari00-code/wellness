@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FloatingContactButtons from "@/components/FloatingContactButtons";
 
 export const metadata: Metadata = {
   title: "Serenova | Premium Wellness Coaching",
@@ -43,6 +44,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <FloatingContactButtons />
       </body>
     </html>
   );
