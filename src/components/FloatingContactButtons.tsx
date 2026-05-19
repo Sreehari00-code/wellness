@@ -1,16 +1,15 @@
 "use client";
 
-import { useState } from "react";
 import { Phone } from "lucide-react";
 
 // Easily customizable contact details
-const WHATSAPP_NUMBER = "919000000000"; // Replace with actual WhatsApp number
-const PHONE_NUMBER = "+919000000000";     // Replace with actual phone number
+const WHATSAPP_NUMBER = "919809745714"; // Replace with actual WhatsApp number
+const PHONE_NUMBER = "+919809745714";     // Replace with actual phone number
 
 const WhatsAppIcon = () => (
   <svg
-    width="20"
-    height="20"
+    width="18"
+    height="18"
     viewBox="0 0 24 24"
     fill="currentColor"
     style={{ display: "block" }}
@@ -20,81 +19,27 @@ const WhatsAppIcon = () => (
 );
 
 export default function FloatingContactButtons() {
-  const [hoveredButton, setHoveredButton] = useState<"whatsapp" | "phone" | null>(null);
-
   return (
     <div className="floating-container">
-      {/* WhatsApp Button Wrapper */}
-      <div
-        className="btn-wrapper"
-        onMouseEnter={() => setHoveredButton("whatsapp")}
-        onMouseLeave={() => setHoveredButton(null)}
+      {/* WhatsApp Button */}
+      <a
+        href={`https://wa.me/${WHATSAPP_NUMBER}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn-anchor premium-btn"
+        aria-label="Contact via WhatsApp"
       >
-        <span
-          className="btn-label"
-          style={{
-            color: "#3ce07d",
-            border: "1px solid rgba(37, 211, 102, 0.25)",
-            opacity: hoveredButton === "whatsapp" ? 1 : 0,
-            transform: hoveredButton === "whatsapp" ? "translateX(0)" : "translateX(10px)",
-          }}
-        >
-          WhatsApp Consultation
-        </span>
+        <WhatsAppIcon />
+      </a>
 
-        <a
-          href={`https://wa.me/${WHATSAPP_NUMBER}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-anchor whatsapp-btn"
-          style={{
-            background: hoveredButton === "whatsapp" ? "rgba(22, 22, 22, 0.95)" : "rgba(18, 18, 18, 0.85)",
-            border: hoveredButton === "whatsapp" ? "1px solid #25d366" : "1px solid rgba(37, 211, 102, 0.3)",
-            color: hoveredButton === "whatsapp" ? "#25d366" : "rgba(37, 211, 102, 0.8)",
-            boxShadow: hoveredButton === "whatsapp"
-              ? "0 10px 30px rgba(37, 211, 102, 0.25), 0 0 15px rgba(37, 211, 102, 0.15)"
-              : "0 6px 20px rgba(0, 0, 0, 0.4)",
-            transform: hoveredButton === "whatsapp" ? "scale(1.08)" : "scale(1)",
-          }}
-        >
-          <WhatsAppIcon />
-        </a>
-      </div>
-
-      {/* Phone Button Wrapper */}
-      <div
-        className="btn-wrapper"
-        onMouseEnter={() => setHoveredButton("phone")}
-        onMouseLeave={() => setHoveredButton(null)}
+      {/* Phone Button */}
+      <a
+        href={`tel:${PHONE_NUMBER}`}
+        className="btn-anchor premium-btn"
+        aria-label="Call directly"
       >
-        <span
-          className="btn-label"
-          style={{
-            color: "var(--gold)",
-            border: "1px solid rgba(197, 168, 128, 0.25)",
-            opacity: hoveredButton === "phone" ? 1 : 0,
-            transform: hoveredButton === "phone" ? "translateX(0)" : "translateX(10px)",
-          }}
-        >
-          Direct Call
-        </span>
-
-        <a
-          href={`tel:${PHONE_NUMBER}`}
-          className="btn-anchor phone-btn"
-          style={{
-            background: hoveredButton === "phone" ? "rgba(22, 22, 22, 0.95)" : "rgba(18, 18, 18, 0.85)",
-            border: hoveredButton === "phone" ? "1px solid var(--gold)" : "1px solid rgba(197, 168, 128, 0.3)",
-            color: hoveredButton === "phone" ? "var(--gold-bright)" : "var(--gold)",
-            boxShadow: hoveredButton === "phone"
-              ? "0 10px 30px rgba(197, 168, 128, 0.25), 0 0 15px rgba(197, 168, 128, 0.15)"
-              : "0 6px 20px rgba(0, 0, 0, 0.4)",
-            transform: hoveredButton === "phone" ? "scale(1.08)" : "scale(1)",
-          }}
-        >
-          <Phone size={18} />
-        </a>
-      </div>
+        <Phone size={18} />
+      </a>
 
       <style jsx>{`
         .floating-container {
@@ -103,30 +48,8 @@ export default function FloatingContactButtons() {
           right: 32px;
           display: flex;
           flex-direction: column;
-          gap: 16px;
-          z-index: 9999;
-          pointer-events: none;
-        }
-        .btn-wrapper {
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
           gap: 12px;
-          pointer-events: auto;
-        }
-        .btn-label {
-          font-family: 'Manrope', sans-serif;
-          font-size: 10px;
-          font-weight: 600;
-          letter-spacing: 0.15em;
-          text-transform: uppercase;
-          background: rgba(10, 10, 10, 0.9);
-          padding: 8px 16px;
-          borderRadius: 4px;
-          transition: opacity 0.3s ease, transform 0.3s ease;
-          white-space: nowrap;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-          pointer-events: none;
+          z-index: 9999;
         }
         .btn-anchor {
           display: flex;
@@ -136,17 +59,25 @@ export default function FloatingContactButtons() {
           height: 52px;
           border-radius: 50%;
           cursor: pointer;
-          transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+          background: #000000;
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          color: #ffffff;
           text-decoration: none;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+          transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .btn-anchor:hover {
+          background: #161616;
+          border: 1px solid rgba(255, 255, 255, 0.4);
+          color: #ffffff;
+          transform: scale(1.08);
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 255, 255, 0.05);
         }
         @media (max-width: 768px) {
           .floating-container {
             bottom: 16px;
             right: 16px;
-            gap: 12px;
-          }
-          .btn-label {
-            display: none !important; /* Hide slide-out label on mobile screens */
+            gap: 10px;
           }
           .btn-anchor {
             width: 44px;
