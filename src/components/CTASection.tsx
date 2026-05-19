@@ -13,7 +13,7 @@ export default function CTASection() {
       ref={ref}
       style={{
         position: "relative",
-        padding: "180px 40px",
+        padding: "clamp(100px, 12vw, 180px) clamp(20px, 4vw, 40px)",
         textAlign: "center",
         overflow: "hidden",
         background: "#F0E9DE",

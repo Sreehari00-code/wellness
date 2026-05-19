@@ -123,7 +123,7 @@ export default function ProgramsSection() {
         }}
       />
 
-      <div style={{ maxWidth: "1300px", margin: "0 auto", padding: "0 40px" }}>
+      <div style={{ maxWidth: "1300px", margin: "0 auto", padding: "0 clamp(20px, 4vw, 40px)" }}>
         {/* Header */}
         <div style={{ marginBottom: "80px" }}>
           <motion.div
@@ -195,14 +195,8 @@ export default function ProgramsSection() {
           </div>
         </div>
 
-        {/* Programs grid */}
         <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "24px",
-          }}
-          className="programs-grid"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {programs.map((program, i) => (
             <motion.div
@@ -433,19 +427,6 @@ export default function ProgramsSection() {
           </motion.button>
         </motion.div>
       </div>
-
-      <style jsx>{`
-        @media (max-width: 1100px) {
-          .programs-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-        }
-        @media (max-width: 700px) {
-          .programs-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

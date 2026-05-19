@@ -110,7 +110,7 @@ export default function HeroSection() {
 
       {/* ── Mathematically Aligned Max-w-5xl Container System ── */}
       <motion.div
-        className="relative z-10 w-full max-w-5xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 text-center flex flex-col items-center justify-center mt-12 sm:mt-16 md:mt-20"
+        className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16 text-center flex flex-col items-center justify-center mt-4 sm:mt-16 md:mt-20"
         style={{ y: contentY, opacity: contentOpacity }}
       >
         {/* Luxury Kicker Line */}
@@ -118,24 +118,23 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-          className="flex items-center justify-center gap-4 mb-10"
+          className="flex items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-10"
         >
-          <div className="w-12 h-[1px] bg-gradient-to-r from-transparent to-[var(--gold)]" />
-          <span className="font-sans text-[10px] font-bold tracking-[0.38em] uppercase text-[var(--gold)]">
+          <div className="hidden sm:block w-12 h-[1px] bg-gradient-to-r from-transparent to-[var(--gold)]" />
+          <span className="font-sans text-[8px] sm:text-[10px] font-bold tracking-[0.3em] sm:tracking-[0.38em] uppercase text-[var(--gold)]">
             Serenova Wellness Coaching
           </span>
-          <div className="w-12 h-[1px] bg-gradient-to-l from-transparent to-[var(--gold)]" />
+          <div className="hidden sm:block w-12 h-[1px] bg-gradient-to-l from-transparent to-[var(--gold)]" />
         </motion.div>
 
         {/* Headline: Clean dual-line blocks for perfect axis centering */}
-        <h1 className="font-serif text-[clamp(36px,6.8vw,80px)] font-light leading-[1.12] tracking-tight text-white mb-12 text-center w-full">
+        <h1 className="font-serif text-[clamp(28px,7.5vw,80px)] font-light leading-[1.12] tracking-tight text-white mb-6 sm:mb-12 text-center w-full">
           {/* Line 1: Reconnect With Your */}
-          <div className="block overflow-hidden pb-1 sm:pb-2">
+          <div className="flex flex-wrap justify-center overflow-hidden pb-1 sm:pb-2 gap-x-[0.24em]">
             {line1Words.map((word, index) => (
               <span
                 key={index}
                 className="inline-block overflow-hidden"
-                style={{ marginRight: index === line1Words.length - 1 ? "0" : "0.24em" }}
               >
                 <motion.span
                   initial={{ y: "100%" }}
@@ -153,12 +152,11 @@ export default function HeroSection() {
             ))}
           </div>
           {/* Line 2: Inner Balance */}
-          <div className="block overflow-hidden">
+          <div className="flex flex-wrap justify-center overflow-hidden gap-x-[0.24em]">
             {line2Words.map((word, index) => (
               <span
                 key={index}
                 className="inline-block overflow-hidden"
-                style={{ marginRight: index === line2Words.length - 1 ? "0" : "0.24em" }}
               >
                 <motion.span
                   initial={{ y: "100%" }}
@@ -182,7 +180,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 1.0 }}
-          className="font-sans text-[clamp(13.5px,1.4vw,16px)] text-[var(--text-muted)] max-w-2xl mx-auto leading-relaxed mb-20 font-light"
+          className="font-sans text-[clamp(13.5px,1.4vw,16px)] text-[var(--text-muted)] max-w-2xl mx-auto leading-relaxed mb-12 sm:mb-20 font-light px-2"
         >
           Crafted for individuals seeking clarity, restoration, and elevated wellbeing through immersive wellness experiences that harmonize the mind, body, and inner rhythm.
         </motion.p>
@@ -192,7 +190,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 52 }}
           animate={{ opacity: 1, y: 32 }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 1.2 }}
-          className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 md:gap-8 w-full sm:w-auto pb-0"
+          className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 md:gap-8 w-full pb-0"
         >
           {/* Primary CTA */}
           <motion.div
@@ -201,7 +199,7 @@ export default function HeroSection() {
               boxShadow: "0 0 35px rgba(197, 168, 128, 0.35)",
             }}
             whileTap={{ scale: 0.98 }}
-            className="w-full sm:w-[280px] h-[48px] rounded-full bg-gradient-to-r from-[var(--gold)] to-[var(--gold-light)] flex items-center justify-center transition-all duration-300"
+            className="w-full max-w-[280px] h-[48px] rounded-full bg-gradient-to-r from-[var(--gold)] to-[var(--gold-light)] flex items-center justify-center transition-all duration-300"
           >
             <Link
               href="#programs"
@@ -220,7 +218,7 @@ export default function HeroSection() {
               boxShadow: "0 0 30px rgba(197, 168, 128, 0.15)",
             }}
             whileTap={{ scale: 0.98 }}
-            className="w-full sm:w-[280px] h-[48px] rounded-full border border-[rgba(197,168,128,0.3)] bg-[rgba(10,10,10,0.55)] backdrop-blur-md flex items-center justify-center transition-all duration-300"
+            className="w-full max-w-[280px] h-[48px] rounded-full border border-[rgba(197,168,128,0.3)] bg-[rgba(10,10,10,0.55)] backdrop-blur-md flex items-center justify-center transition-all duration-300"
           >
             <Link
               href="#services"
@@ -237,7 +235,7 @@ export default function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.7 }}
         transition={{ delay: 1.8, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 cursor-pointer"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center gap-3 cursor-pointer"
         onClick={() => {
           document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
         }}

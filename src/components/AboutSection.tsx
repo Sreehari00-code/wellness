@@ -21,7 +21,7 @@ export default function AboutSection() {
       ref={ref}
       style={{
         background: "var(--bg-primary)",
-        padding: "140px 0",
+        padding: "clamp(80px, 10vw, 140px) 0",
         position: "relative",
         overflow: "hidden",
       }}
@@ -63,7 +63,7 @@ export default function AboutSection() {
         style={{
           maxWidth: "1300px",
           margin: "0 auto",
-          padding: "0 40px",
+          padding: "0 clamp(20px, 4vw, 40px)",
         }}
       >
         {/* Section label */}
@@ -75,7 +75,7 @@ export default function AboutSection() {
             display: "flex",
             alignItems: "center",
             gap: "16px",
-            marginBottom: "80px",
+            marginBottom: "clamp(40px, 6vw, 80px)",
           }}
         >
           <div
@@ -154,15 +154,16 @@ export default function AboutSection() {
               transition={{ delay: 0.6, duration: 1 }}
               style={{
                 position: "absolute",
-                bottom: "-20px",
-                right: "-20px",
-                padding: "24px 28px",
+                bottom: "-10px",
+                right: "-10px",
+                padding: "18px 22px",
                 background: "rgba(18, 18, 18, 0.85)",
                 border: "1px solid var(--border)",
-                maxWidth: "240px",
+                maxWidth: "220px",
                 backdropFilter: "blur(16px)",
                 boxShadow: "0 20px 40px rgba(0,0,0,0.6)",
               }}
+              className="hidden sm:block"
             >
               <p
                 style={{
@@ -276,7 +277,7 @@ export default function AboutSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, delay: 0.8 }}
           style={{
-            marginTop: "100px",
+            marginTop: "clamp(60px, 8vw, 100px)",
             display: "grid",
             gridTemplateColumns: "repeat(4, 1fr)",
             gap: "1px",
@@ -289,7 +290,7 @@ export default function AboutSection() {
             <div
               key={i}
               style={{
-                padding: "48px 32px",
+                padding: "clamp(24px, 4vw, 48px) clamp(16px, 3vw, 32px)",
                 textAlign: "center",
                 background: "var(--bg-card)",
               }}

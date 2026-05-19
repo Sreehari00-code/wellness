@@ -33,7 +33,6 @@ export default function Navbar() {
         position: "fixed",
         top: "24px",
         left: "50%",
-        transform: "translateX(-50%)",
         width: "min(1280px, calc(100% - 48px))",
         zIndex: 1000,
         borderRadius: "999px",

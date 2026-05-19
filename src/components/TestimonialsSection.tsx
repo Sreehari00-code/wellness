@@ -123,7 +123,7 @@ export default function TestimonialsSection() {
         }}
       />
 
-      <div style={{ maxWidth: "1300px", margin: "0 auto", padding: "0 40px" }}>
+      <div style={{ maxWidth: "1300px", margin: "0 auto", padding: "0 clamp(20px, 4vw, 40px)" }}>
         {/* Header */}
         <div
           style={{
@@ -236,13 +236,7 @@ export default function TestimonialsSection() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 320px",
-                gap: "80px",
-                alignItems: "start",
-              }}
-              className="testimonial-layout"
+              className="grid grid-cols-1 md:grid-cols-[1fr_320px] gap-12 md:gap-20 items-start"
             >
               {/* Quote */}
               <div>
@@ -450,15 +444,6 @@ export default function TestimonialsSection() {
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        @media (max-width: 900px) {
-          .testimonial-layout {
-            grid-template-columns: 1fr !important;
-            gap: 48px !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

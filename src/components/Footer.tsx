@@ -65,16 +65,10 @@ export default function Footer() {
         padding: "100px 0 0",
       }}
     >
-      <div style={{ maxWidth: "1300px", margin: "0 auto", padding: "0 40px" }}>
+      <div style={{ maxWidth: "1300px", margin: "0 auto", padding: "0 clamp(20px, 4vw, 40px)" }}>
         {/* Top row */}
         <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1.2fr 1fr 1fr 1fr",
-            gap: "60px",
-            marginBottom: "80px",
-          }}
-          className="footer-grid"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_1fr] gap-10 lg:gap-16 mb-20"
         >
           {/* Brand Column */}
           <div>
@@ -188,18 +182,7 @@ export default function Footer() {
 
         {/* Newsletter Section */}
         <div
-          style={{
-            padding: "52px 60px",
-            borderTop: "1px solid var(--border)",
-            borderBottom: "1px solid var(--border)",
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "60px",
-            alignItems: "center",
-            marginBottom: "52px",
-            background: "rgba(18, 18, 18, 0.2)",
-          }}
-          className="newsletter-row"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center border-t border-b border-[var(--border)] mb-12 bg-[rgba(18,18,18,0.2)] p-6 sm:p-10 md:p-[52px_60px]"
         >
           <div>
             <h4
@@ -344,24 +327,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <style jsx>{`
-        @media (max-width: 1000px) {
-          .footer-grid {
-            grid-template-columns: 1fr 1fr !important;
-            gap: 40px !important;
-          }
-        }
-        @media (max-width: 700px) {
-          .footer-grid {
-            grid-template-columns: 1fr !important;
-          }
-          .newsletter-row {
-            grid-template-columns: 1fr !important;
-            padding: 36px 28px !important;
-            gap: 30px !important;
-          }
-        }
-      `}</style>
+
     </footer>
   );
 }

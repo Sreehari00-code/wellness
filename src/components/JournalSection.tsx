@@ -87,7 +87,7 @@ export default function JournalSection() {
         }}
       />
 
-      <div style={{ maxWidth: "1300px", margin: "0 auto", padding: "0 40px" }}>
+      <div style={{ maxWidth: "1300px", margin: "0 auto", padding: "0 clamp(20px, 4vw, 40px)" }}>
         {/* Header */}
         <div
           style={{
@@ -175,27 +175,14 @@ export default function JournalSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           whileHover={{ y: -4 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-0 mb-8 border border-[var(--border)] cursor-pointer overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.06)] transition-all duration-300"
           style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "0",
-            marginBottom: "32px",
-            border: "1px solid var(--border)",
-            cursor: "pointer",
-            transition: "border-color 0.4s, transform 0.3s",
-            overflow: "hidden",
-            boxShadow: "0 10px 40px rgba(0,0,0,0.06)",
+            background: "var(--bg-primary)",
           }}
-          className="featured-article"
         >
           {/* Featured Image */}
           <div
-            style={{
-              aspectRatio: "16/10",
-              position: "relative",
-              overflow: "hidden",
-              borderRight: "1px solid var(--border)",
-            }}
+            className="aspect-[16/10] relative overflow-hidden border-b md:border-b-0 md:border-r border-[var(--border)]"
           >
             <Image
               src="/images/journal-hero.png"
@@ -230,7 +217,7 @@ export default function JournalSection() {
           {/* Content */}
           <div
             style={{
-              padding: "60px 52px",
+              padding: "clamp(24px, 6vw, 60px) clamp(20px, 5vw, 52px)",
               background: "var(--bg-primary)",
               display: "flex",
               flexDirection: "column",
@@ -331,12 +318,7 @@ export default function JournalSection() {
 
         {/* Article grid */}
         <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "24px",
-          }}
-          className="articles-grid"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {rest.map((article, i) => (
             <motion.div
@@ -430,22 +412,7 @@ export default function JournalSection() {
         </div>
       </div>
 
-      <style jsx>{`
-        @media (max-width: 900px) {
-          .featured-article {
-            grid-template-columns: 1fr !important;
-          }
-          .articles-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-            gap: 20px !important;
-          }
-        }
-        @media (max-width: 600px) {
-          .articles-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
+
     </section>
   );
 }
