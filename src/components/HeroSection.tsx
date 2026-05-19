@@ -8,11 +8,16 @@ import Link from "next/link";
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Parallax scroll tracking (performance-optimized GPU transforms)
-  const { scrollY } = useScroll();
-  const bgY = useTransform(scrollY, [0, 800], [0, 160]);
-  const contentY = useTransform(scrollY, [0, 800], [0, -40]);
-  const contentOpacity = useTransform(scrollY, [0, 600], [1, 0]);
+  // Parallax scroll tracking (performance-optimized GPU transforms based on element position)
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+  
+  // Maps 0-1 progress to vertical pixel shift
+  const bgY = useTransform(scrollYProgress, [0, 1], [0, 160]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, -40]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   // Art-directed line splits for perfect vertical center alignment
   const line1Words = ["Reconnect", "With", "Your"];
@@ -21,7 +26,7 @@ export default function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-[#060606]"
+      className="relative w-full h-[100dvh] min-h-[600px] flex items-center justify-center overflow-hidden bg-[#060606]"
       style={{ isolation: "isolate" }}
     >
       {/* ── Background Layer (Parallax + Vignette) ── */}
@@ -64,7 +69,7 @@ export default function HeroSection() {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute top-[20%] right-[15%] w-[450px] h-[450px] rounded-full blur-[110px]"
+          className="absolute top-[20%] right-[15%] w-[300px] h-[300px] md:w-[450px] md:h-[450px] rounded-full blur-[80px] md:blur-[110px]"
           style={{
             background: "radial-gradient(circle, rgba(197,168,128,0.22) 0%, transparent 70%)",
           }}
@@ -82,7 +87,7 @@ export default function HeroSection() {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute bottom-[15%] left-[5%] w-[500px] h-[500px] rounded-full blur-[120px]"
+          className="absolute bottom-[15%] left-[5%] w-[350px] h-[350px] md:w-[500px] md:h-[500px] rounded-full blur-[90px] md:blur-[120px]"
           style={{
             background: "radial-gradient(circle, rgba(95,114,95,0.2) 0%, transparent 70%)",
           }}
