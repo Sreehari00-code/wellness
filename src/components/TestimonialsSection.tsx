@@ -71,6 +71,146 @@ const testimonials = [
   },
 ];
 
+function MobileTransformationCard({ testimonial }: { testimonial: typeof testimonials[0] }) {
+  return (
+    <div
+      style={{
+        width: "280px",
+        flexShrink: 0,
+        padding: "24px 20px",
+        background: "var(--bg-primary)",
+        border: "1px solid var(--border)",
+        borderRadius: "4px",
+        boxShadow: "0 10px 30px rgba(0,0,0,0.04)",
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px",
+        whiteSpace: "normal",
+      }}
+    >
+      {testimonial.image && (
+        <div
+          style={{
+            position: "relative",
+            width: "100%",
+            aspectRatio: "1.2/1",
+            overflow: "hidden",
+            border: "1px solid rgba(197, 168, 128, 0.15)",
+            borderRadius: "2px",
+          }}
+        >
+          <img
+            src={testimonial.image}
+            alt={`${testimonial.author} transformation`}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              filter: "brightness(0.95) contrast(1.05)",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              bottom: "8px",
+              left: "8px",
+              right: "8px",
+              display: "flex",
+              justifyContent: "space-between",
+              fontFamily: "'Manrope', sans-serif",
+              fontSize: "8px",
+              letterSpacing: "0.15em",
+              color: "var(--gold)",
+              textTransform: "uppercase",
+              fontWeight: 600,
+              background: "rgba(10, 10, 10, 0.8)",
+              padding: "4px 8px",
+              borderRadius: "1px",
+            }}
+          >
+            <span>Before</span>
+            <span>After</span>
+          </div>
+        </div>
+      )}
+
+      <div style={{ display: "flex", flexDirection: "column", flexGrow: 1, justifyContent: "space-between", gap: "16px" }}>
+        <div>
+          <span
+            style={{
+              fontFamily: "'Manrope', sans-serif",
+              fontSize: "8.5px",
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              color: "var(--gold)",
+              fontWeight: 600,
+              display: "block",
+              marginBottom: "6px",
+            }}
+          >
+            {testimonial.duration}
+          </span>
+          <p
+            style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontSize: "14.5px",
+              fontStyle: "italic",
+              lineHeight: "1.5",
+              color: "var(--text-primary)",
+              margin: 0,
+            }}
+          >
+            &ldquo;{testimonial.quote}&rdquo;
+          </p>
+        </div>
+
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", borderTop: "1px solid var(--border)", paddingTop: "12px" }}>
+          <div
+            style={{
+              width: "32px",
+              height: "32px",
+              borderRadius: "50%",
+              background: "linear-gradient(135deg, rgba(197,168,128,0.15), rgba(18,18,18,0.8))",
+              border: "1px solid var(--border)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontFamily: "'Cormorant Garamond', serif",
+              fontSize: "13px",
+              color: "var(--gold)",
+            }}
+          >
+            {testimonial.author.charAt(0)}
+          </div>
+          <div>
+            <h5
+              style={{
+                fontFamily: "'Manrope', sans-serif",
+                fontSize: "11px",
+                fontWeight: 600,
+                color: "var(--gold)",
+                margin: 0,
+              }}
+            >
+              {testimonial.author}
+            </h5>
+            <span
+              style={{
+                fontFamily: "'Manrope', sans-serif",
+                fontSize: "9px",
+                color: "var(--text-muted)",
+                display: "block",
+              }}
+            >
+              {testimonial.title}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function TestimonialsSection() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
@@ -85,7 +225,8 @@ export default function TestimonialsSection() {
       ref={ref}
       style={{
         background: "var(--bg-secondary)",
-        padding: "140px 0",
+        paddingTop: "clamp(60px, 8vw, 100px)",
+        paddingBottom: "clamp(60px, 8vw, 100px)",
         position: "relative",
         overflow: "hidden",
       }}
@@ -182,6 +323,7 @@ export default function TestimonialsSection() {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.4 }}
+            className="hidden md:flex"
             style={{ display: "flex", gap: "12px" }}
           >
             <button
@@ -228,7 +370,7 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Testimonial display */}
-        <div style={{ position: "relative", minHeight: "340px" }}>
+        <div className="hidden md:block" style={{ position: "relative", minHeight: "340px" }}>
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
@@ -417,8 +559,67 @@ export default function TestimonialsSection() {
           </AnimatePresence>
         </div>
 
+        {/* Mobile Marquee */}
+        <div className="block md:hidden w-full overflow-hidden py-4 relative">
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              bottom: 0,
+              left: 0,
+              width: "48px",
+              background: "linear-gradient(90deg, var(--bg-secondary) 0%, transparent 100%)",
+              zIndex: 10,
+              pointerEvents: "none",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              bottom: 0,
+              right: 0,
+              width: "48px",
+              background: "linear-gradient(-90deg, var(--bg-secondary) 0%, transparent 100%)",
+              zIndex: 10,
+              pointerEvents: "none",
+            }}
+          />
+
+          <div className="marquee-track">
+            {testimonials.map((t, idx) => (
+              <MobileTransformationCard key={`first-${idx}`} testimonial={t} />
+            ))}
+            {testimonials.map((t, idx) => (
+              <MobileTransformationCard key={`second-${idx}`} testimonial={t} />
+            ))}
+          </div>
+
+          <style>{`
+            @keyframes marqueeScroll {
+              0% {
+                transform: translateX(0);
+              }
+              100% {
+                transform: translateX(-50%);
+              }
+            }
+            .marquee-track {
+              display: flex;
+              gap: 20px;
+              width: max-content;
+              animation: marqueeScroll 45s linear infinite;
+            }
+            .marquee-track:hover,
+            .marquee-track:active {
+              animation-play-state: paused;
+            }
+          `}</style>
+        </div>
+
         {/* Progress indicators */}
         <div
+          className="hidden md:flex"
           style={{
             display: "flex",
             gap: "8px",

@@ -36,10 +36,10 @@ function ServiceCard({
         border: "1px solid rgba(197, 168, 128, 0.12)",
         backgroundColor: "rgba(18, 18, 18, 0.45)",
         backdropFilter: "blur(24px)",
-        padding: "clamp(24px, 4vw, 40px)", // Mobile: 24px (p-6), Desktop: 40px (p-10)
+        padding: "clamp(20px, 3vw, 32px)",
         position: "relative",
         overflow: "hidden",
-        minHeight: "clamp(520px, 45vw, 600px)",
+        minHeight: "clamp(420px, 38vw, 480px)",
         transition: "transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.5s, box-shadow 0.5s",
       }}
     >
@@ -54,7 +54,7 @@ function ServiceCard({
           alignItems: "flex-start",
           justifyContent: "space-between",
           width: "100%",
-          marginBottom: "32px", // Spacious 32px margin below icon row
+          marginBottom: "20px", // Spacious 20px margin below icon row
         }}
       >
         {/* Rounded dark green icon container */}
@@ -70,13 +70,13 @@ function ServiceCard({
 
       {/* Cinematic Image Container */}
       <div
-        className="aspect-[16/10]"
+        className="aspect-[16/9]"
         style={{
           position: "relative",
           width: "100%",
           overflow: "hidden",
           borderRadius: "20px", // Consistent elegant rounded image corners
-          marginBottom: "32px", // Spacious 32px margin below image
+          marginBottom: "20px", // Spacious 20px margin below image
           border: "1px solid rgba(255, 255, 255, 0.05)",
           backgroundColor: "rgba(30, 30, 30, 0.5)",
         }}
@@ -99,7 +99,7 @@ function ServiceCard({
       </div>
 
       {/* Title */}
-      <div style={{ marginBottom: "16px" }}>
+      <div style={{ marginBottom: "10px" }}>
         <h3 className="font-serif text-2xl lg:text-3xl font-light text-white tracking-tight leading-snug group-hover:text-[var(--gold-light)] transition-colors duration-500">
           {title}
         </h3>
@@ -113,7 +113,7 @@ function ServiceCard({
             fontSize: "14px",
             lineHeight: "1.8", // Highly readable line height
             color: "var(--text-muted)",
-            marginBottom: "32px", // Spacious 32px margin below text
+            marginBottom: "20px", // Spacious 20px margin below text
             fontWeight: 300,
             maxWidth: "100%",
           }}
@@ -193,8 +193,8 @@ export default function ServicesSection() {
       style={{
         position: "relative",
         background: "linear-gradient(to bottom, #060606, #090b09, #070707)",
-        paddingTop: "clamp(80px, 8vw, 128px)", // py-20 (80px) on mobile, py-32 (128px) on desktop
-        paddingBottom: "clamp(80px, 8vw, 128px)",
+        paddingTop: "clamp(60px, 8vw, 100px)",
+        paddingBottom: "clamp(60px, 8vw, 100px)",
         overflow: "hidden",
         borderBottom: "1px solid var(--border)",
       }}
@@ -214,7 +214,7 @@ export default function ServicesSection() {
         }}
       >
         {/* Section Header */}
-        <div style={{ marginBottom: "clamp(64px, 7vw, 96px)" }}>
+        <div style={{ marginBottom: "clamp(36px, 5vw, 60px)" }}>
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -223,7 +223,7 @@ export default function ServicesSection() {
               display: "flex",
               alignItems: "center",
               gap: "16px",
-              marginBottom: "32px", // Spacious tag margins
+              marginBottom: "16px", // Reduced tag margins
             }}
           >
             <div style={{ width: "40px", height: "1px", background: "var(--gold)" }} />

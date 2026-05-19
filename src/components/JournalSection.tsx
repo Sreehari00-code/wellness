@@ -66,7 +66,8 @@ export default function JournalSection() {
       ref={ref}
       style={{
         background: "var(--bg-primary)",
-        padding: "140px 0",
+        paddingTop: "clamp(60px, 8vw, 100px)",
+        paddingBottom: "clamp(60px, 8vw, 100px)",
         position: "relative",
         overflow: "hidden",
       }}

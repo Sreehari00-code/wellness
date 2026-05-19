@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 
@@ -10,6 +10,48 @@ const stats = [
   { value: "98%", label: "Client Satisfaction" },
   { value: "35+", label: "Global Retreats" },
 ];
+
+function Counter({ value, inView }: { value: string; inView: boolean }) {
+  const [displayValue, setDisplayValue] = useState("0");
+
+  useEffect(() => {
+    if (!inView) return;
+
+    const numericString = value.replace(/[^0-9]/g, "");
+    const target = parseInt(numericString, 10);
+    if (isNaN(target)) {
+      setDisplayValue(value);
+      return;
+    }
+
+    const suffix = value.replace(/[0-9,]/g, "");
+    const hasComma = value.includes(",");
+
+    let startTime: number | null = null;
+    const duration = 2000; // 2 seconds
+
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      const easeProgress = progress * (2 - progress); // easeOutQuad
+      const currentVal = Math.floor(easeProgress * target);
+
+      const formattedVal = hasComma
+        ? currentVal.toLocaleString()
+        : currentVal.toString();
+
+      setDisplayValue(`${formattedVal}${suffix}`);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [value, inView]);
+
+  return <>{displayValue}</>;
+}
 
 export default function AboutSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -21,7 +63,8 @@ export default function AboutSection() {
       ref={ref}
       style={{
         background: "var(--bg-primary)",
-        padding: "clamp(80px, 10vw, 140px) 0",
+        paddingTop: "clamp(60px, 8vw, 100px)",
+        paddingBottom: "clamp(60px, 8vw, 100px)",
         position: "relative",
         overflow: "hidden",
       }}
@@ -42,7 +85,7 @@ export default function AboutSection() {
           pointerEvents: "none",
         }}
       />
-      
+
       {/* Muted gold glow on right */}
       <div
         style={{
@@ -100,13 +143,7 @@ export default function AboutSection() {
         </motion.div>
 
         <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "80px",
-            alignItems: "center",
-          }}
-          className="about-grid"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
         >
           {/* Left: Image composition */}
           <motion.div
@@ -154,25 +191,24 @@ export default function AboutSection() {
               transition={{ delay: 0.6, duration: 1 }}
               style={{
                 position: "absolute",
-                bottom: "-10px",
-                right: "-10px",
-                padding: "18px 22px",
+                bottom: "clamp(-15px, -1vw, -10px)",
+                right: "clamp(-15px, -1vw, -10px)",
+                padding: "clamp(12px, 2.5vw, 18px) clamp(14px, 3vw, 22px)",
                 background: "rgba(18, 18, 18, 0.85)",
                 border: "1px solid var(--border)",
-                maxWidth: "220px",
+                maxWidth: "clamp(170px, 45vw, 220px)",
                 backdropFilter: "blur(16px)",
                 boxShadow: "0 20px 40px rgba(0,0,0,0.6)",
               }}
-              className="hidden sm:block"
             >
               <p
                 style={{
                   fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: "14.5px",
+                  fontSize: "clamp(11.5px, 2.5vw, 14.5px)",
                   fontStyle: "italic",
                   color: "#FFFFFF",
                   lineHeight: 1.6,
-                  marginBottom: "12px",
+                  marginBottom: "clamp(8px, 1.5vw, 12px)",
                 }}
               >
                 &ldquo;Wellness is not a destination — it is a way of living with sovereignty.&rdquo;
@@ -180,7 +216,7 @@ export default function AboutSection() {
               <span
                 style={{
                   fontFamily: "'Manrope', sans-serif",
-                  fontSize: "9px",
+                  fontSize: "clamp(8px, 1.5vw, 9px)",
                   color: "var(--gold)",
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
@@ -279,7 +315,7 @@ export default function AboutSection() {
           style={{
             marginTop: "clamp(60px, 8vw, 100px)",
             display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
+            gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
             gap: "1px",
             background: "var(--border)",
             border: "1px solid var(--border)",
@@ -290,7 +326,7 @@ export default function AboutSection() {
             <div
               key={i}
               style={{
-                padding: "clamp(24px, 4vw, 48px) clamp(16px, 3vw, 32px)",
+                padding: "clamp(16px, 3vw, 48px) clamp(4px, 1.5vw, 32px)",
                 textAlign: "center",
                 background: "var(--bg-card)",
               }}
@@ -298,24 +334,25 @@ export default function AboutSection() {
               <div
                 style={{
                   fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: "clamp(36px, 4vw, 52px)",
+                  fontSize: "clamp(18px, 4.5vw, 52px)",
                   fontWeight: 300,
                   color: "var(--gold)",
-                  marginBottom: "8px",
+                  marginBottom: "4px",
                   lineHeight: 1,
                   letterSpacing: "-0.01em",
                 }}
               >
-                {stat.value}
+                <Counter value={stat.value} inView={inView} />
               </div>
               <div
                 style={{
                   fontFamily: "'Manrope', sans-serif",
-                  fontSize: "10px",
-                  letterSpacing: "0.2em",
+                  fontSize: "clamp(8px, 1.2vw, 10px)",
+                  letterSpacing: "clamp(0.04em, 1.8vw, 0.2em)",
                   textTransform: "uppercase",
                   color: "var(--text-muted)",
                   fontWeight: 500,
+                  lineHeight: 1.2,
                 }}
               >
                 {stat.label}
@@ -324,23 +361,6 @@ export default function AboutSection() {
           ))}
         </motion.div>
       </div>
-
-      <style jsx>{`
-        @media (max-width: 900px) {
-          .about-grid {
-            grid-template-columns: 1fr !important;
-            gap: 50px !important;
-          }
-          .stats-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-        }
-        @media (max-width: 500px) {
-          .stats-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

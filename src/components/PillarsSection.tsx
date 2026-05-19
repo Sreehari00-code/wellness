@@ -67,20 +67,20 @@ export default function PillarsSection() {
       style={{
         background: "var(--bg-primary)",
         position: "relative",
-        paddingTop: "clamp(80px, 8vw, 128px)",
-        paddingBottom: "clamp(80px, 8vw, 128px)",
+        paddingTop: "clamp(60px, 8vw, 100px)",
+        paddingBottom: "clamp(60px, 8vw, 100px)",
       }}
       className="border-b border-[var(--border)]"
     >
       <div style={{ width: "100%", maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(20px, 4vw, 40px)", boxSizing: "border-box" }}>
         
         {/* ── Section Header ───────────────────────────────────────── */}
-        <div ref={headerRef} style={{ marginBottom: "clamp(64px, 7vw, 96px)" }}>
+        <div ref={headerRef} style={{ marginBottom: "clamp(36px, 5vw, 60px)" }}>
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={headerInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
-            style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "32px" }}
+            style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "16px" }}
           >
             <div style={{ width: "40px", height: "1px", background: "var(--gold)" }} />
             <span style={{ fontFamily: "'Manrope', sans-serif", fontSize: "10px", letterSpacing: "0.35em", textTransform: "uppercase", color: "var(--gold)", fontWeight: 500 }}>
@@ -183,7 +183,7 @@ export default function PillarsSection() {
         .card-image {
           position: relative;
           width: 100%;
-          height: 260px;
+          height: 180px;
           overflow: hidden;
           border-bottom: 1px solid var(--border);
         }
@@ -196,11 +196,11 @@ export default function PillarsSection() {
         }
 
         .bento-card-2 .card-image, .bento-card-3 .card-image, .bento-card-4 .card-image {
-          height: 200px; /* Slightly shorter images for bottom row */
+          height: 140px; /* Slightly shorter images for bottom row */
         }
 
         .card-content {
-          padding: 32px;
+          padding: clamp(16px, 2.5vw, 24px);
           display: flex;
           flex-direction: column;
           flex-grow: 1;
@@ -210,7 +210,7 @@ export default function PillarsSection() {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-bottom: 20px;
+          margin-bottom: 12px;
         }
 
         .card-tag {
@@ -247,14 +247,14 @@ export default function PillarsSection() {
           letter-spacing: 0.2em;
           text-transform: uppercase;
           color: var(--gold-light);
-          margin-bottom: 24px;
+          margin-bottom: 12px;
         }
 
         .card-divider {
           width: 32px;
           height: 1px;
           background: var(--gold);
-          margin-bottom: 24px;
+          margin-bottom: 12px;
         }
 
         .card-description {

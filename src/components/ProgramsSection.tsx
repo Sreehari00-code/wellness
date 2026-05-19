@@ -103,7 +103,8 @@ export default function ProgramsSection() {
       ref={ref}
       style={{
         background: "var(--bg-primary)",
-        padding: "140px 0",
+        paddingTop: "clamp(60px, 8vw, 100px)",
+        paddingBottom: "clamp(60px, 8vw, 100px)",
         position: "relative",
         overflow: "hidden",
       }}
@@ -125,7 +126,7 @@ export default function ProgramsSection() {
 
       <div style={{ maxWidth: "1300px", margin: "0 auto", padding: "0 clamp(20px, 4vw, 40px)" }}>
         {/* Header */}
-        <div style={{ marginBottom: "80px" }}>
+        <div style={{ marginBottom: "clamp(32px, 5vw, 60px)" }}>
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -133,7 +134,7 @@ export default function ProgramsSection() {
               display: "flex",
               alignItems: "center",
               gap: "16px",
-              marginBottom: "24px",
+              marginBottom: "16px",
             }}
           >
             <div style={{ width: "40px", height: "1px", background: "var(--gold)" }} />
